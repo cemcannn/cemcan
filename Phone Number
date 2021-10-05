@@ -1,0 +1,115 @@
+
+telefon_defteri = [["ahmet",1234]]
+
+print(telefon_defteri)
+
+def kisi_ara():
+    isim_veya_telefon = input("Lütfen aramak istediğiniz kişinin adını ve soyadını arada bir boşluk olacak şekilde giriniz veya telefon numarasını başında 0 olmadan giriniz :")
+    indeks = 0
+    for i in telefon_defteri:
+        if isim_veya_telefon.isnumeric() == True:
+            if int(isim_veya_telefon)==telefon_defteri[indeks][1]:
+                print(telefon_defteri[indeks][0],"'in telefon numarası",telefon_defteri[indeks][1])     
+        elif isim_veya_telefon==telefon_defteri[indeks][0]:
+            print(telefon_defteri[indeks][0],"'in telefon numarası",telefon_defteri[indeks][1])
+        else:
+            print("Kayıt bulunamadı!")  
+        indeks = indeks + 1
+
+def yeni_kayit_gir(isim=str,telefon=int):
+    isim    = input("Lütfen kaydetmek istediğiniz kişinin adını ve soyadını arada bir boşluk olacak şekilde giriniz   :")
+    telefon = input("Lütfen kaydetmek istediğiniz kişinin telefon numarasını başında 0 olmadan giriniz          :")
+    telefon_defteri.append([isim,telefon])
+    print(telefon_defteri)
+
+def kisi_sil():
+    isim    = input("Lütfen silmek istediğiniz kişinin adını ve soyadını arada bir boşluk olacak şekilde giriniz   :")
+    indeks = 0
+    for i in telefon_defteri:
+        if isim==telefon_defteri[indeks][0]:
+            telefon_defteri.pop(indeks)
+        else:
+            print("Kayıt bulunamadı!") 
+        indeks = indeks + 1
+    print("Kişi siliniyor...")
+
+def kisi_numara_guncelleme():
+    isim    = input("Lütfen güncellemek istediğiniz kişinin adını ve soyadını arada bir boşluk olacak şekilde giriniz   :")
+    indeks = 0
+    for i in telefon_defteri:
+        if isim==telefon_defteri[indeks][0]:
+            print(telefon_defteri[indeks][0],"'in telefon numarası",telefon_defteri[indeks][1])  
+            telefon_defteri[indeks][1] = input("Lütfen yeni numarayı giriniz :")
+            print("Telefon numarası güncellendi")
+        else:
+            print("Kayıt bulunamadı!")     
+        indeks = indeks + 1
+    
+def mesaj_gonder():
+    isim_veya_telefon = input("Lütfen mesaj göndermek istediğiniz kişinin adını ve soyadını arada bir boşluk olacak şekilde giriniz veya telefon numarasını başında 0 olmadan giriniz :")
+    indeks = 0
+    for i in telefon_defteri:
+        if isim_veya_telefon.isnumeric() == True:
+            if isim_veya_telefon==telefon_defteri[indeks][1]:
+                mesaj = input("Lütfen göndermek istediğiniz mesajı yazınız ve enter tuşuna basınız :")
+                print("Mesaj gönderildi...")    
+        elif isim_veya_telefon==telefon_defteri[indeks][0]:
+                mesaj = input("Lütfen göndermek istediğiniz mesajı yazınız ve enter tuşuna basınız :")
+                print("Mesaj gönderildi...")
+        else:
+            print("Kayıt bulunamadı!")    
+        indeks = indeks + 1
+
+def arama_yapma():
+    isim_veya_telefon = input("Lütfen arama yapmak istediğiniz kişinin adını ve soyadını arada bir boşluk olacak şekilde giriniz veya telefon numarasını başında 0 olmadan giriniz :")
+    indeks = 0
+    for i in telefon_defteri:
+        if isim_veya_telefon.isnumeric() == True:
+            if isim_veya_telefon==telefon_defteri[indeks][1]:
+                print(  "----------------------------------------------",
+                            telefon_defteri[indeks][0]," aranıyor",            
+                                    telefon_defteri[indeks][1],     
+                        "----------------------------------------------","\a")
+        elif isim_veya_telefon==telefon_defteri[indeks][0]:
+            print(  "----------------------------------------------"                    
+                        ,telefon_defteri[indeks][0]," aranıyor",
+                        
+                                telefon_defteri[indeks][1],     
+                    "----------------------------------------------","\a")
+        else:
+            print("Kayıt bulunamadı!")  
+        indeks = indeks + 1
+
+while 1==1:
+    secenek = input(
+    """
+    -------------------------------------------------
+    ||                                             ||
+    || 1. Kişi ara                                 ||
+    || 2. Kişi ekle                                ||
+    || 3. Kişi sil                                 ||
+    || 4. Kişi numara güncelleme                   ||
+    || 5. Mesaj at                                 ||
+    || 6. Arama yap                                ||
+    || Q. Çıkış yap                                ||
+    ||                                             ||
+    -------------------------------------------------
+    Lütfen yapmak istediğiniz işlemi seçiniz : 
+    """)
+    if secenek.isnumeric()  ==True and int(secenek)==1:
+        kisi_ara()
+    elif secenek.isnumeric()==True and int(secenek)==2:
+        yeni_kayit_gir()
+    elif secenek.isnumeric()==True and int(secenek)==3:
+        kisi_sil()
+    elif secenek.isnumeric()==True and int(secenek)==4:
+        kisi_numara_guncelleme()
+    elif secenek.isnumeric()==True and int(secenek)==5: 
+        mesaj_gonder()        
+    elif secenek.isnumeric()==True and int(secenek)==6:
+        arama_yapma()      
+    elif secenek=="Q" or secenek=="q":
+        print("Çıkış yapılıyor...")
+        break
+    else:
+        print("Hatalı giriş yaptınız! Lütfen tekrar deneyiniz...")
