@@ -1,4 +1,3 @@
-
 telefon_defteri = [["ahmet",1234]]
 
 print(telefon_defteri)
@@ -80,19 +79,44 @@ def arama_yapma():
             print("Kayıt bulunamadı!")  
         indeks = indeks + 1
 
+def hesap_makinesi():
+    while 1==1:
+        islem = input("Lütfen yapmak istediğiniz işlemi giriniz :")
+        try:
+            print("İşlem sonucu :",eval(islem))
+        except TypeError:
+            print("Lütfen işlemleri doğru giriniz!")
+        except NameError:
+            print("Lütfen rakam giriniz!")
+        except SyntaxError:
+            print("Lütfen işlemleri doğru giriniz!")
+        except ZeroDivisionError:
+            print("Lütfen bölme işleminde bölen olarak sıfır rakamını girmeyiniz!")
+        except:
+            ("Bir hata oluştu.")
+        secenek_makine=input("""
+        Devam etmek istiyor musunuz? -> (e)
+        Ana menüye dönmek için herhangi bir tuşa basınız.""")
+        if secenek_makine == "e":
+            print("Devam ediliyor...")
+            continue
+        else:
+            print("Ana menüye dönülüyor...")
+            break
+
+
 while 1==1:
     secenek = input(
     """
     -------------------------------------------------
-    ||                                             ||
     || 1. Kişi ara                                 ||
     || 2. Kişi ekle                                ||
     || 3. Kişi sil                                 ||
     || 4. Kişi numara güncelleme                   ||
     || 5. Mesaj at                                 ||
     || 6. Arama yap                                ||
+    || 7. Hesap makinesi (Basit)                   ||                                         
     || Q. Çıkış yap                                ||
-    ||                                             ||
     -------------------------------------------------
     Lütfen yapmak istediğiniz işlemi seçiniz : 
     """)
@@ -108,6 +132,8 @@ while 1==1:
         mesaj_gonder()        
     elif secenek.isnumeric()==True and int(secenek)==6:
         arama_yapma()      
+    elif secenek.isnumeric()==True and int(secenek)==7:
+        hesap_makinesi()      
     elif secenek=="Q" or secenek=="q":
         print("Çıkış yapılıyor...")
         break
