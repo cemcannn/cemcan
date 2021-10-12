@@ -99,7 +99,8 @@ while True:
 
     elif secenek == "4":
         print("Kayıt işlemi başarıyla tamamlandı.")
-
+        break
+        
     elif secenek == "5":
         break
 
