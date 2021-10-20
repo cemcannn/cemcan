@@ -4,7 +4,7 @@ from typing import Callable
 
 class Arac:
     def __init__(self):
-        self.arac_listesi = {"1":["sad","ada",2021,"sdasd",165465,"sdsds"]}
+        self.arac_listesi = {}
     
     def arac_ekle(self, arac_kodu:int, arac_markasi:str, arac_modeli:str, arac_yili:int, arac_kategorisi:str, arac_fiyati:float, arac_rengi:str):
         self.arac_listesi[arac_kodu]=[arac_markasi,arac_modeli,arac_yili,arac_kategorisi,arac_fiyati,arac_rengi]
@@ -37,7 +37,7 @@ class Insan:
     
 class Musteri(Insan):
     def __init__(self):
-        self.musteri_listesi = {"1":["dsds","dfsds","dsds","sdsds","sdsds",16465]}
+        self.musteri_listesi = {}
 
     def musteri_listele(self): 
         print("============== Liste ================")
@@ -65,7 +65,7 @@ class Musteri(Insan):
 
 class Personel(Insan):
     def __init__(self):
-        self.personel_listesi = {"1":["dsds","dfsds","dsds","sdsds","sdsds",16465,"dsds"]}
+        self.personel_listesi = {}
 
     def personel_ekle(self, tckn:int,adi:str,soyadi:str,adres:complex,il:str,ilce:str,tel:int,gorevi:str ):
         self.personel_listesi[tckn]=[adi,soyadi,adres,il,ilce,tel,gorevi]
