@@ -65,7 +65,7 @@ class Musteri(Insan):
 
 class Personel(Insan):
     def __init__(self):
-        self.personel_listesi = {}
+        self.personel_listesi = {"1":["dsds","dfsds","dsds","sdsds","sdsds",16465,"dsds"]}
 
     def personel_ekle(self, tckn:int,adi:str,soyadi:str,adres:complex,il:str,ilce:str,tel:int,gorevi:str ):
         self.personel_listesi[tckn]=[adi,soyadi,adres,il,ilce,tel,gorevi]
@@ -197,12 +197,30 @@ class Arac_Yonetim_Sistemi:
                 input("Devam etmek için bir tuşa basınız")
             elif secenek=="2":
                 arac.araclari_listele()
-                arac.arac_bul(input("Araç kodunu giriniz : "))
-                input("Devam etmek için bir tuşa basınız")
+                if arac.arac_listesi=={}:
+                    print("Henüz eklenmiş bir araç bulunmamaktadır! Lütfen önce araç ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")
+                else:    
+                    while 1==1:
+                        try:
+                            arac.arac_bul(input("Araç kodunu giriniz : "))
+                            input("Devam etmek için bir tuşa basınız")
+                            break
+                        except KeyError:
+                            print("Lütfen doğru araç kodunu giriniz!")              
             elif secenek=="3":
-                arac.araclari_listele()
-                arac.arac_sil(input("Araç kodunu giriniz : "))
-                input("Devam etmek için bir tuşa basınız")
+                if arac.arac_listesi=={}:
+                    print("Henüz eklenmiş bir araç bulunmamaktadır! Lütfen önce araç ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")
+                else:
+                    while 1==1:
+                        try:
+                            arac.araclari_listele()
+                            arac.arac_sil(input("Araç kodunu giriniz : "))
+                            input("Devam etmek için bir tuşa basınız")
+                            break
+                        except KeyError:
+                            print("Lütfen doğru araç kodunu giriniz!")     
             elif secenek=="4":
                 arac.arac_duzenle()
             elif secenek=="5":
@@ -230,46 +248,64 @@ class Fatura_Yonetim_Sistemi:
             """)
             secenek=input("Lütfen seçiminizi giriniz : ")
             if secenek=="1":
+                if arac.arac_listesi=={}:
+                    print("Henüz eklenmiş bir araç bulunmamaktadır! Lütfen önce araç yönetim menüsünden araç ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")
+                elif personel.personel_listesi=={}:
+                    print("Henüz eklenmiş bir personel bulunmamaktadır! Lütfen önce personel yönetim menüsünden personel ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")                
+                elif musteri.musteri_listesi=={}:
+                    print("Henüz eklenmiş bir müşteri bulunmamaktadır! Lütfen önce müşteri yönetim menüsünden müşteri ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")
+                else:                
+                    fatura_no=input("Fatura numarasını giriniz : ")
+                    musteri.musteri_listele()
+                    while 1==1:
+                        try:
+                            musteri_ekle = musteri.musteri_listesi[input("Listeden müşteri TCKN'si giriniz :")]
+                            input("Devam etmek için bir tuşa basınız...")
+                            break
+                        except KeyError:
+                            print("Lütfen doğru müşteri tckn si giriniz!")     
 
-                fatura_no=input("Fatura numarasını giriniz : ")
+                    arac.araclari_listele()
+                    while 1==1:
+                        try:
+                            arac_ekle = arac.arac_listesi[input("Listeden araç kodu giriniz :")]
+                            arac_tutari=float(arac_ekle[4]) * 120 /100
+                            input("Devam etmek için bir tuşa basınız...")
+                            break 
+                        except KeyError:
+                            print("Lütfen doğru araç kodu giriniz!")                                       
 
-                musteri.musteri_listele()
-                while 1==1:
-                    try:
-                        musteri_ekle = musteri.musteri_listesi[input("Listeden müşteri TCKN'si giriniz :")]
-                        input("Devam etmek için bir tuşa basınız...")
-                        break
-                    except KeyError:
-                        print("Lütfen doğru müşteri tckn si giriniz!")     
+                    personel.personel_listele()
+                    while 1==1:
+                        try:
+                            personel_ekle = personel.personel_listesi[input("Listeden personel TCKN'si giriniz :")]
+                            input("Devam etmek için bir tuşa basınız")
+                            break
+                        except KeyError:
+                            print("Lütfen doğru personel tckn si giriniz!")  
 
-                arac.araclari_listele()
-                while 1==1:
-                    try:
-                        arac_ekle = arac.arac_listesi[input("Listeden araç kodu giriniz :")]
-                        arac_tutari=float(arac_ekle[4]) * 120 /100
-                        input("Devam etmek için bir tuşa basınız...")
-                        break 
-                    except KeyError:
-                        print("Lütfen doğru araç kodu giriniz!")                                       
-
-                personel.personel_listele()
-                while 1==1:
-                    try:
-                        personel_ekle = personel.personel_listesi[input("Listeden personel TCKN'si giriniz :")]
-                        input("Devam etmek için bir tuşa basınız")
-                        break
-                    except KeyError:
-                        print("Lütfen doğru personel tckn si giriniz!")  
-
-                fatura.fatura_ekle(fatura_no, musteri_ekle, arac_ekle, personel_ekle,datetime.now(),arac_tutari)
-                print(fatura.fatura_listesi)
+                    fatura.fatura_ekle(fatura_no, musteri_ekle, arac_ekle, personel_ekle,datetime.now(),arac_tutari)
+                    print(fatura.fatura_listesi)
 
             elif secenek=="2":
-                fatura.faturalari_listele()
-                fatura.fatura_bul(input("Fatura kodunu giriniz : "))
+                if fatura.fatura_listesi=={}:
+                    print("Henüz eklenmiş bir fatura bulunmamaktadır! Lütfen önce fatura ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")    
+                else:            
+                    fatura.faturalari_listele()
+                    fatura.fatura_bul(input("Fatura kodunu giriniz : "))
+                    input("Devam etmek için bir tuşa basınız")               
             elif secenek=="3":
-                fatura.faturalari_listele()
-                fatura.fatura_sil(input("Fatura kodunu giriniz : "))
+                if fatura.fatura_listesi=={}:
+                    print("Henüz eklenmiş bir fatura bulunmamaktadır! Lütfen önce fatura ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")    
+                else:               
+                    fatura.faturalari_listele()
+                    fatura.fatura_sil(input("Fatura kodunu giriniz : "))
+                    input("Devam etmek için bir tuşa basınız")   
             elif secenek=="4":
                 fatura.fatura_duzenle()
             elif secenek=="5":
@@ -300,13 +336,33 @@ class Musteri_Yonetim_Sistemi:
                 musteri.musteri_ekle(input("TCKN giriniz : "), input("Müşteri adını giriniz : "), input("Müşteri soyadını giriniz : "), input("Müşteri adresini giriniz : "), input("Müşteri ilini giriniz : "), input("Müşteri ilçesini giriniz : "), input("Müşteri telefonunu giriniz : "))
                 input("Devam etmek için bir tuşa basınız")            
             elif secenek=="2":
-                musteri.musteri_listele()
-                musteri.musteri_bul(input("TCKN giriniz : "))
-                input("Devam etmek için bir tuşa basınız")            
+                if musteri.musteri_listesi=={}:
+                    print("Henüz eklenmiş bir müşteri bulunmamaktadır! Lütfen önce müşteri ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")
+                else:
+                    while 1==1:
+                        try:
+                            musteri.musteri_listele()
+                            musteri.musteri_bul(input("TCKN giriniz : "))
+                            input("Devam etmek için bir tuşa basınız")
+                            break
+                        except KeyError:
+                            print("Lütfen doğru müşteri tckn si giriniz!")  
+                
             elif secenek=="3":
-                musteri.musteri_listele()
-                musteri.musteri_sil(input("TCKN giriniz : "))
-                input("Devam etmek için bir tuşa basınız")                
+                if musteri.musteri_listesi=={}:
+                    print("Henüz eklenmiş bir müşteri bulunmamaktadır! Lütfen önce müşteri ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")
+                else:
+                    while 1==1:
+                        try:                
+                            musteri.musteri_listele()
+                            musteri.musteri_sil(input("TCKN giriniz : "))
+                            input("Devam etmek için bir tuşa basınız")
+                            break
+                        except KeyError:
+                            print("Lütfen doğru müşteri tckn si giriniz!")  
+                
             elif secenek=="4":
                 musteri.musteri_duzenle()
             elif secenek=="5":
@@ -337,13 +393,31 @@ class Personel_Yonetim_Sistemi:
                 personel.personel_ekle(input("TCKN giriniz : "), input("Personel adını giriniz : "), input("Personel soyadını giriniz : "), input("Personel adresini giriniz : "), input("Personel ilini giriniz : "), input("Personel ilçesini giriniz : "), input("Personel telefonunu giriniz : "), input("Personel görevini giriniz : "))
                 input("Devam etmek için bir tuşa basınız")                
             elif secenek=="2":
-                personel.personel_listele()
-                personel.personel_bul(input("TCKN giriniz : "))
-                input("Devam etmek için bir tuşa basınız")
+                if personel.personel_listesi=={}:
+                    print("Henüz eklenmiş bir personel bulunmamaktadır! Lütfen önce personel ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")
+                else:
+                    while 1==1:
+                        try:
+                            personel.personel_listele()
+                            personel.personel_bul(input("TCKN giriniz : "))
+                            input("Devam etmek için bir tuşa basınız")
+                            break
+                        except KeyError:
+                            print("Lütfen doğru personel tckn si giriniz!")  
             elif secenek=="3":
-                personel.personel_listele()
-                personel.personel_sil(input("TCKN giriniz : "))
-                input("Devam etmek için bir tuşa basınız")                
+                if personel.personel_listesi=={}:
+                    print("Henüz eklenmiş bir personel bulunmamaktadır! Lütfen önce personel ekleyiniz.")
+                    input("Devam etmek için bir tuşa basınız")                
+                else:
+                    while 1==1:
+                        try:                
+                            personel.personel_listele()
+                            personel.personel_sil(input("TCKN giriniz : "))
+                            input("Devam etmek için bir tuşa basınız") 
+                            break    
+                        except KeyError:
+                            print("Lütfen doğru personel tckn si giriniz!")             
             elif secenek=="4":
                 personel.personel_duzenle()
             elif secenek=="5":
