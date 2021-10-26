@@ -54,7 +54,9 @@ class Aciklama:
         edilecektir. Fatura  bulma ekranında ekrana gelen listeden fatura numarası girerek fatura bilgilerine erişebilirsiniz. Fatura silme 
         ekranında yine ekrana gelen listeden fatura numarası girerek ilgili faturayı listeden silebilirsiniz. Fatura düzenle ekranında yine 
         listeden fatura numarsı girerek ilgili fatura bilgilerini düzenleyebilirsiniz.
+        
         Ana menüden 6. seçeneği seçmeniz durumunda saat ve tarih ayarlarını yapabilirsiniz.
+        
         Ana menüden 7. seçeneği seçmeniz durumunda ise sistemden çıkış yapabilirsiniz.      
         """)
 
