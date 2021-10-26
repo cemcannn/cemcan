@@ -16,7 +16,9 @@ class Aciklama:
     def aciklama():
         print("""
         Araç satış sistemine hoşgeldiniz...
+        
         Bu işlem araç satışı gerçekleştirmek için fatura kesmek üzere düzenlenmiştir.
+        
         Fatura kesebilmek için öncelikle araç bilgileri, müşteri bilgilier ve personel bilgilerini girmeniz gerekmektedir.
         Araç bilgilerini girmek için ana menüden 1 numaralı araç yönetim menüsüne girmeniz gerekmektedir. Araç yönetim menüsünde 
         5 adet seçenek bulunmaktadır. 1. seçenekten araç ekleme, 2. seçenekten araç bulma, 3. seçenekten araç silme, 4. seçenekten 
@@ -26,6 +28,7 @@ class Aciklama:
         Araç silme ekranında yine ekrana gelen listeden araç kodunu girerek ilgili aracı listeden silebilirsiniz fakat faturası 
         kesilmiş araç listeden silinmez. Araç düzenle ekranında yine listeden araç kodunu girerek ilgili aracın bilgilerini 
         düzenleyebilirsiniz.
+        
         Müşteri bilgilerini girmek için ana menüden 2 numaralı müşteri yönetim menüsüne girmeniz gerekmektedir. Müşteri yönetim 
         menüsünde 5 adet seçenek bulunmaktadır. 1. seçenekten müşteri ekleme, 2. seçenekten müşteri bulma, 3. seçenekten müşteri silme, 
         4. seçenekten müşteri düzenleme yapabilir ve 5. seçenekten ana menüye dönebilirsiniz. Müşteri eklemek için müşteri TCKN, müşteri 
