@@ -11,12 +11,12 @@ def arac_getir_benzersizkod(benzersiz_kod:int) -> Arac: # Araç getir fonksiyonu
     return __arac_listesi[benzersiz_kod] # 
 
 def arac_getir_serino(serino:str) -> Arac: # Araç getir fonksiyonunu seri numaradan getiriyor.
-    for arac_key, arac in __arac_listesi.items():
+    for arac_key, arac in __arac_listesi.items(): # Buradaki arac_key ne işe yarıyor######################
         if arac.serino == serino:
             return arac
     return None
 
-def arac_listele() -> {Arac}:
+def arac_listele() -> {Arac}: #Burası neden süslü parantez#################################### 
     return __arac_listesi
 
 def arac_duzenle(arac:Arac):

@@ -13,11 +13,8 @@ def __arac_dogrula(arac:Arac) -> (bool,str): # __arac_dogrula fonksiynunu gizley
     if arac_veri_yonetimi.arac_getir_serino(arac.serino) != None:
         return (False, "Seri numarası daha önce kullanılmış")
 
-
     if type(arac.fiyat) != int:
         return (False, "Fiyat rakam olmalıdır")
-
-
 
     return (True, "Araç doğrulandı")
 

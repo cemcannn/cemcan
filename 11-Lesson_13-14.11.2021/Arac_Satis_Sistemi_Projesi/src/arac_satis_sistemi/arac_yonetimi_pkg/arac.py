@@ -7,6 +7,6 @@ class Arac: # Araç kodu
         self.fiyat          = fiyat
         self.renk           = renk
 
-    def __str__(self): 
+    def __str__(self): # Bu ne işe yarıyor.##############################################
         return f"ID = {self.benzersiz_kod}, serino = {self.serino}, marka = {self.marka}, model = {self.model}"
 
