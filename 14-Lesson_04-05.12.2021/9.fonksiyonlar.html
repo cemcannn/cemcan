@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        <style>
+
+        #div1{
+            height: 500px;
+            width: 500px;
+            background-color: antiquewhite;
+            font-size: 20px;
+            color: red;
+        }
+
+    </style>
+
+</head>
+<body>
+<nav>
+    <a href="1.js_giris.html">giriş</a> <br>
+    <a href="2.ciktilar.html">çıktılar</a> <br>
+     <a href="3.degiskenler.html">değişkenler</a> <br>
+
+         <a href="4.operatorler.html">operatorler</a> <br>
+
+      <a href="5.veri_girisi.html">veri girişi</a> <br>
+       <a href="6.akis_denetimi.html">akış denetimi</a> <br>
+    <a href="7.donguler.html">donguler</a> <br>
+        <a href="8.diziler.html">diziler</a> <br>
+            <a href="9.fonksiyonlar.html">fonksiyonlar</a> <br>
+                <a href="10.exception.html">exceptions</a> <br>
+</nav>
+
+<div id="div1"></div>
+
+    <script>
+
+        function topla(sayi1,sayi2){
+                return sayi1 + sayi2;
+        }
+
+        var sayi1 = Number(prompt("sayi 1 giriniz"));
+        var sayi2 = Number(prompt("sayi 2 giriniz"));
+
+        var toplam = topla(sayi1,sayi2)
+
+        alert(toplam)
+
+        var veriler =  {
+            "key1":"value1",
+            "key2":"value2",
+            "kitaplar":[{"urunkey":"kitap1","fiyat":"5"},
+                       {"urunkey":"kitap2","fiyat":"5"},
+                       {"urunkey":"kitap3","fiyat":"5"}
+                  ],
+            "key3":"value3"
+        }
+
+        console.log(veriler["key1"])
+
+
+        var div1 = document.getElementById("div1");
+        div1.innerHTML = toplam;
+
+
+
+        //-------------------------------------string fonksiyonları
+
+        var str = "Apple, Banana, Kiwi";
+        var part = str.slice(7, 13);
+        alert(part)
+
+
+        var part = str.substr(7, 6);
+        alert(part)
+
+        var text = "Please visit Microsoft!";
+        var newText = text.replace("Microsoft", "W3Schools");
+
+
+        var text = "5";
+        var padded = text.padStart(4,0);
+        alert("padded" + padded)
+
+
+        var sayi4 = 4;
+        String(sayi4)
+        sayi4.toString()
+
+        alert(typeof sayi4)
+
+
+        //---------------------------------- scop kavramı ve let
+
+        var getir = function (){
+           aaaa = 1;
+        }
+        getir()
+        alert("aaaa" + aaaa); // aaaa değikeni global dir
+
+
+        var getir2 = function (){
+          var aaaa1 = 1;
+        }
+        getir2()
+
+        try{
+                  alert("aaaa" + aaaa1) // aaaa1 localdir çünki balında var kelilmesi var
+        }
+        catch (err)
+        {
+
+            console.log(err)
+        }
+
+        //--------------------------------- let kullanımı
+
+        var dd = 4;
+        var dd = "mehmet"
+
+
+        let aa = 5
+        // let aa =   "mehmet" // hata verecektir
+
+
+        //----------------------------------------
+
+        const PI = 3.14
+
+        // PI = 4 // buası hata verir
+
+    </script>
+
+</body>
+</html>

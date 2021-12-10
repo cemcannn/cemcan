@@ -1,0 +1,23 @@
+a:link {
+    color: red;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    text-decoration: none;
+
+  }
+  
+  
+  a:visited {
+    color: Green;
+  
+  }
+  
+  
+  a:hover {
+    color: blue;
+  }
+  
+  
+  a:active {
+    color: purple;
+  }

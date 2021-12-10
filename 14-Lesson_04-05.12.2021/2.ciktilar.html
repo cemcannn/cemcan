@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        #div1{
+            height: 500px;
+            width: 500px;
+            background-color: antiquewhite;
+            font-size: 20px;
+            color: red;
+
+        }
+
+    </style>
+
+</head>
+
+
+
+
+
+<body>
+<nav>
+    <a href="1.js_giris.html">giriş</a> <br>
+    <a href="2.ciktilar.html">çıktılar</a> <br>
+         <a href="3.degiskenler.html">değişkenler</a> <br>
+             <a href="4.operatorler.html">operatorler</a> <br>
+      <a href="5.veri_girisi.html">veri girişi</a> <br>
+       <a href="6.akis_denetimi.html">akış denetimi</a> <br>
+    <a href="7.donguler.html">donguler</a> <br>
+            <a href="8.diziler.html">diziler</a> <br>
+            <a href="9.fonksiyonlar.html">fonksiyonlar</a> <br>
+                <a href="10.exception.html">exceptions</a> <br>
+
+
+
+</nav>
+
+<div id="div1"></div>
+
+    <script>
+        //tek satır açıklama
+        /* bu da çok
+           satırlı açıklama */
+        var veri="merhaba dünya! sayfanın en altından";
+        var div1 = document.getElementById("div1");
+
+        console.log("veri:" + div1)
+
+        // console.log() ile çıktı üretmek
+        console.log("merhaba ben console log ile yazıldım")
+
+        div1.innerHTML=veri;
+
+        // document.write() ile sayfaya bir şeyler yazmak
+        document.write("merhaba ben document.write() ile yazıldım <br>")
+        document.write("merhaba ben document.write() ile yazıldım1 <br>")
+        document.write("merhaba ben document.write() ile yazıldım2 <br>")
+        document.write("merhaba ben document.write() ile yazıldım3 <br>")
+
+        //alert ile çıktı üretmek
+        alert("merhaba ben alert ile üretildim")
+
+    </script>
+
+</body>
+</html>

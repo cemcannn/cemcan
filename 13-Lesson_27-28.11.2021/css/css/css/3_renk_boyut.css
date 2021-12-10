@@ -1,0 +1,86 @@
+body{
+
+font-size: 14px;
+
+}
+
+
+
+#div_top{
+
+width:500px;
+height:300px;
+background-color: beige;
+color: brown;
+font-size:20px;
+}
+
+.cool{
+width:500px;
+height:300px;
+background-color:aqua;
+color: blue;
+}
+
+#table_content{
+
+background-color:cadetblue;
+color:black;
+width:80%;
+height:300px;
+}
+
+
+
+#div_top2{
+
+    width:500px;
+    height:300px;
+    background-color: beige;
+    color: brown;
+    font-size:20px;
+
+}
+
+#div_top2 div{
+
+width:100px;
+height:100px;
+background-color:white;
+
+}
+
+.tr_class{
+
+
+background-color:chartreuse;
+font-size:30px;
+color:pink;
+
+
+}
+
+.td_class{
+
+background-color: white;
+color:black;
+font-size:25px;
+
+}
+
+#td_id{
+
+    background-color: blue;
+    color:white;
+    font-size:25px;
+
+
+}
+
+
+
+
+
+
+
+

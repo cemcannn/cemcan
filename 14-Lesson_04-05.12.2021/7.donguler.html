@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        <style>
+
+        #div1{
+            height: 500px;
+            width: 500px;
+            background-color: antiquewhite;
+            font-size: 20px;
+            color: red;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<nav>
+    <a href="1.js_giris.html">giriş</a> <br>
+    <a href="2.ciktilar.html">çıktılar</a> <br>
+     <a href="3.degiskenler.html">değişkenler</a> <br>
+
+         <a href="4.operatorler.html">operatorler</a> <br>
+
+      <a href="5.veri_girisi.html">veri girişi</a> <br>
+       <a href="6.akis_denetimi.html">akış denetimi</a> <br>
+    <a href="7.donguler.html">donguler</a> <br>
+        <a href="8.diziler.html">diziler</a> <br>
+            <a href="9.fonksiyonlar.html">fonksiyonlar</a> <br>
+                <a href="10.exception.html">exceptions</a> <br>
+
+</nav>
+
+<div id="div1"></div>
+
+    <script>
+
+        var sayi1 = 2;
+        var sayi2 = 3;
+        div1 = document.getElementById("div1");
+
+        //------------------------------------------for dongusu
+        /*for(başlangıç değeri;  koşul;  artış değeri)
+        {
+        //yapılacak işlemler
+        }*/
+
+        for(var i=0; i<10; i++){
+            document.write(i + "<br>");
+        }
+
+        for(var i=10; i>-1; i--){
+            document.write(i + "<br>");
+        }
+ document.write("-------------------------------")
+
+        var dizi = Array(1,2,3,4,5)
+
+        for (i in dizi){
+            document.write(i)
+        }
+
+ document.write("##############")
+        for (var i =0; i < dizi.length ; i++){
+            document.write(dizi[i])
+        }
+
+ document.write("-------------------------------")
+
+
+
+        //------------------------------------------ while dongusu
+
+        var sayi = -5;
+        while(sayi<5){
+            document.write(sayi);
+            sayi++;
+        }
+
+        //------------------------------------------- do while
+        var i=0;
+        do {
+            document.write(i);
+            i++;
+        } while(i<5);
+
+    </script>
+
+</body>
+</html>

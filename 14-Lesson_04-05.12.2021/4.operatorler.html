@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        <style>
+
+        #div1{
+            height: 500px;
+            width: 500px;
+            background-color: antiquewhite;
+            font-size: 20px;
+            color: red;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<nav>
+    <a href="1.js_giris.html">giriş</a> <br>
+    <a href="2.ciktilar.html">çıktılar</a> <br>
+     <a href="3.degiskenler.html">değişkenler</a> <br>
+
+         <a href="4.operatorler.html">operatorler</a> <br>
+      <a href="5.veri_girisi.html">veri girişi</a> <br>
+       <a href="6.akis_denetimi.html">akış denetimi</a> <br>
+    <a href="7.donguler.html">donguler</a> <br>
+            <a href="8.diziler.html">diziler</a> <br>
+            <a href="9.fonksiyonlar.html">fonksiyonlar</a> <br>
+                <a href="10.exception.html">exceptions</a> <br>
+
+</nav>
+
+<div id="div1"></div>
+
+    <script>
+
+        var sayi1 = 3;
+        var sayi2 = 4;
+
+        var toplama = sayi1 + sayi2;
+        var çarpma = sayi1 * sayi2;
+
+        var sonuc = sayi1++; // sayi1 + 1
+        sayi1 += 5; // sayi1 = sayi1 + 5
+
+        sayi2 *= 2; // sayi2 = sayi2 * 2
+
+
+        var div1=document.getElementById("div1");
+        div1.innerHTML = sayi2;
+
+
+        //--------------------------------------------------------------------
+
+        div1.innerHTML = "sayi1 = " + sayi1 + ", sayi2 =" + sayi2
+        div1.innerHTML += "<br><br>"
+        div1.innerHTML += "sayi1 < sayi2 &nbsp;&nbsp;" + (sayi1 < sayi2) //div1.innerHTML = div1.innerHTML + (sayi1 < sayi2)
+
+        div1.innerHTML += "<br><br>"
+        div1.innerHTML +=  "sayi1 == sayi2 &nbsp;&nbsp;" + (sayi1 == sayi2) //div1.innerHTML = div1.innerHTML + (sayi1 == sayi2)
+
+
+        var sayi4 = 4;
+        var sayi4_string = "4";
+
+        div1.innerHTML += "<br><br>"
+        div1.innerHTML +=  "sayi4 == sayi4_string &nbsp;&nbsp;" + (sayi4 == sayi4_string) //div1.innerHTML = div1.innerHTML + (sayi1 == sayi2)
+        div1.innerHTML += "<br><br>"
+        div1.innerHTML +=  "sayi4 === sayi4_string &nbsp;&nbsp;" + (sayi4 === sayi4_string) //div1.innerHTML = div1.innerHTML + (sayi1 == sayi2)
+
+        div1.innerHTML += "<br><br>"
+        div1.innerHTML +=  (3 == 3 || "mehmet" == "mehmet" && 1 < 2)
+
+
+
+
+    </script>
+
+</body>
+</html>

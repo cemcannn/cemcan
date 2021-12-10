@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listeler</title>
+</head>
+
+<body>
+    <ul>
+        <!-- Sırasız liste-->
+        <li> item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+    <ul style="list-style-type: circle;">
+        <!-- Sırasız listenin listeleme tipini bu şekilde değiştirebiliyoruz.-->
+        <li> item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ul>
+    <ol>
+        <!-- Sıralı liste -->
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ol>
+    <ol type="A">
+        <!-- Sıralı listenin listeleme tipini bu şekilde değiştirebiliyoruz.-->
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ol>
+    <ol type="1" start="10">
+        <!-- Sıralı listenin listeleme tipini bu şekilde değiştirip kaçtan başlayacağını da belirleyebiliyorsun.-->
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+    </ol>
+    <ul>
+        <!-- Sırasız listenin içindeki listeye alt liste bu şekilde oluşturulabiliyor.-->
+        <li> item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+        <li>item 4
+            <ul>
+                <li>item 4.1</li>
+                <li>item 4.2</li>
+                <li>item 4.3</li>
+            </ul>
+        </li>
+    </ul>
+    <dl> <!--Description list anlamına gelir, burada description term karşılığa gelen description details terimini ifade eder. Yani bir terim ve karşılığı girilir. -->
+        <dt>HTML</dt>
+        <dd>5 saat</dd>
+        <dt>CSS</dt>
+        <dd>15 saat</dd>
+        <dd>Internal Css</dd>
+        <dd>External Css</dd>
+    </dl>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+        <style>
+
+        #div1{
+            height: 500px;
+            width: 500px;
+            background-color: antiquewhite;
+            font-size: 20px;
+            color: red;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<nav>
+    <a href="1.js_giris.html">giriş</a> <br>
+    <a href="2.ciktilar.html">çıktılar</a> <br>
+     <a href="3.degiskenler.html">değişkenler</a> <br>
+
+         <a href="4.operatorler.html">operatorler</a> <br>
+
+      <a href="5.veri_girisi.html">veri girişi</a> <br>
+       <a href="6.akis_denetimi.html">akış denetimi</a> <br>
+    <a href="7.donguler.html">donguler</a> <br>
+            <a href="8.diziler.html">diziler</a> <br>
+            <a href="9.fonksiyonlar.html">fonksiyonlar</a> <br>
+                <a href="10.exception.html">exceptions</a> <br>
+
+</nav>
+
+<div id="div1"></div>
+
+    <script>
+
+        // python daki input fonksiyonu yerine burada prompt var
+        var sayi1 = prompt("sayi 1 giriniz");
+        var sayi2 = prompt("sayi 2 giriniz");
+
+        var div1=document.getElementById("div1");
+
+        var sayi = 1;
+        var sayi_string = String(sayi); // "1"
+        var sayi_bool = Boolean(sayi); // true
+
+
+        // tip donulumu : https://www.w3schools.com/js/js_type_conversion.asp
+        div1.innerHTML =  Number(sayi1) + Number(sayi2);
+
+
+
+
+    </script>
+
+</body>
+</html>

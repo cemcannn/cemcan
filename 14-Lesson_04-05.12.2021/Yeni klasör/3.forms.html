@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <nav>
+
+
+        <a href="1.class.html">class kullanımı</a> <br>
+        <a href="2.selector.html">selectors - seçiciler</a> <br>
+        <a href="3.forms.html">formlar</a> <br>
+        <a href="4.events.html">events</a> <br>
+
+</nav>
+
+    <form id="form1" name="form1" action="3.forms.html" onsubmit="return validateForm('form1')">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John" onchange="changeForm2()"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+
+      <br> <br> <br> <br> <br> <br>
+
+
+      <form id="form2" name="form2" action="3.forms.html" onsubmit="return validateForm('form2')">
+        <label for="fname">First name:</label><br>
+        <input type="text" id="fname" name="fname" value="John"><br>
+        <label for="lname">Last name:</label><br>
+        <input type="text" id="lname" name="lname" value="Doe"><br><br>
+        <input type="submit" value="Submit">
+      </form>
+
+    
+
+
+
+  <!--Scripts-->
+  <script type="text/javascript" src="js/3.forms.js"></script>
+    
+
+</body>
+</html>

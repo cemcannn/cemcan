@@ -1,0 +1,154 @@
+.kenarlik1 {
+
+    border-style: dotted;
+    border-width: 2px;
+    border-color: red;
+    border-radius: 5px;
+
+
+    border-right-width: 5px;
+
+    /* background-color: antiquewhite; */
+
+    width: 500px;
+    height: 250px;
+
+    background-image: url(../images/Lays-Logo.png);
+    background-position: center;
+    background-size: 500px 500px;
+}
+
+
+
+.kenarlik2 {
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: blue;
+    border-radius: 8px;
+
+
+    background-color: antiquewhite;
+
+    width: 500px;
+    height: 250px;
+
+
+}
+
+/*kenar dışı boşluk kullanımı - başladı*/
+#div_dis {
+
+    width: 500px;
+
+    border: 2px solid red;
+
+
+}
+
+
+
+#div_ic {
+
+
+    border: 4px solid blue;
+    /* margin-top:25px;
+    margin-bottom: 25px;
+    margin-left:25px;
+    margin-right: 25px; */
+
+    /*üst, sağ, alt ve sol */
+    margin: 10px 20px 30px 40px
+}
+
+/*kenar dışı boşluk kullanımı - bitti*/
+
+
+
+
+
+
+
+/*kenar dışı boşluk kullanımı fazlalık gizleme - başladı*/
+#div_dis_fazlalik {
+
+    width: 500px;
+    border: 2px solid red;
+    overflow: hidden;
+    background-color:bisque
+
+
+
+}
+
+
+
+#div_ic_fazlalik {
+
+
+    border: 4px solid blue;
+    background-color:aqua;
+    /* margin-top:25px;
+    margin-bottom: 25px;
+    margin-left:25px;
+    margin-right: 25px; */
+
+    /*üst, sağ, alt ve sol */
+    margin: 10px 50px 30px 40px;
+    width: 500px;
+    height: 100px;
+}
+
+/*kenar dışı boşluk kullanımı fazlalık gizleme  - bitti*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*kenar içi boşluk kullanımı - başladı*/
+
+
+#div_dis_padding {
+
+    width: 600px;
+
+    border: 2px solid red;
+
+
+}
+
+#div_ic_padding {
+
+
+    border: 4px solid blue;
+    /* margin-top:25px;
+        margin-bottom: 25px;
+        margin-left:25px;
+        margin-right: 25px; */
+
+    /*üst, sağ, alt ve sol */
+    margin: 2px;
+
+
+    /*kenar içi boşluk*/
+    padding-top: 10px;;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    padding-left: 30px;
+
+
+
+}
+
+/*kenar içi boşluk kullanımı - bitti*/

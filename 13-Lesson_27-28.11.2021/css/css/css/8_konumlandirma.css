@@ -1,0 +1,90 @@
+#div_main{
+
+width:3000px;
+
+height:1500px;
+background-color: aqua;
+
+
+}
+
+
+/*----------------------- static konumlarndırma*/
+#div_1{
+
+
+    background-color: azure; 
+    height: 60px; 
+    width: 60px; 
+    position: static;
+
+    left: 100px;
+ 
+
+}
+
+/*----------------------- fixed konumlarndırma*/
+
+#div_2{
+
+
+    background-color: azure; 
+    height: 60px; 
+    width: 60px; 
+    position: fixed;
+    z-index:3;
+
+    left: 100px;
+
+ 
+
+}
+
+/*----------------------- absolute konumlarndırma*/
+
+#div_3{
+
+
+    background-color: azure; 
+    height: 60px; 
+    width: 60px; 
+    position: absolute;
+
+    left: 200px;
+
+  
+
+}
+
+/*----------------------- sticky konumlarndırma*/
+
+#div_4{
+
+
+    background-color: blue; 
+    height: 60px; 
+    width: 60px; 
+    position: sticky;
+
+    left: 300px;
+    top: 0px;
+
+
+}
+
+/*----------------------------- z index*/
+
+
+#div_5{
+
+
+    background-color: rgb(11, 156, 156); 
+    height: 60px; 
+    width: 60px; 
+    position: fixed;
+    top: 280px;
+    left: 110px;
+    z-index:2;
+   
+
+}

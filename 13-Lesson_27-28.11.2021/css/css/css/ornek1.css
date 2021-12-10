@@ -1,0 +1,46 @@
+        /* tag seçici */
+        h1 {
+            color: #ff0000;
+        }
+
+        h4 {
+            color: rgb(35, 150, 60);
+        }
+
+
+        /* class seçici */
+        .color_mavi {
+
+            color: blue;
+        }
+
+        .color_pembe {
+
+            color: pink;
+        }
+
+        .color_kirmizi {
+
+            color: red;
+        }
+
+
+        #baslik3 {
+
+            color: rgb(0, 153, 255);
+        }
+
+        #baslik5 {
+
+            color: rgb(42, 107, 230);
+        }
+
+        #baslik6 {
+
+            color: rgb(8, 46, 117);
+        }
+
+        #vurgulu_metin {
+
+            color: aqua
+        }

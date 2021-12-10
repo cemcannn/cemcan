@@ -1,0 +1,129 @@
+alttaki odev modul ve paket kullanılarak yapılacak.
+
+
+
+
+
+Fatura Tanımı (Class)
+=====================
+- Fatura Listesi (Class Attribute)
+
+- Fatura Numarası -> Dictionary kullanılacak, Fatura Numarası key olacak
+- Müşteri (müşteri listesinden seçilecek)
+- Araç Listesi (araç litesinden seçilecek)
+- Farurayı Kesen Personel (personel listesinden seçileeck)
+- Fatura Tarihi
+- Fatura Tutarı (Aracın fiyatı araç seçimiyle alınacak ve üstüne %20 eklenecek)
+- Açıklama
+
+
+Araç Tanımı (Class)
+=====================
+- Araç Listesi (Class Attribute) -> Dictionary kullanılacak, Aracın Kodu key olacak
+- Aracın Kodu
+- Aracın Markası
+- Aracın Modeli
+- Aracın Kategorisi (Ticari, Otomobil, Arazi, Ticari)
+- Aracın Fiyatı
+- Aracın Rengi
+
+
+Müsteri Tanımı (class) --> personel tanımı ile ortal ozelliklere sahip olduğuna dikkat ediniz. bu durumda Insan adslı bir base class kullanılmalı Müşteri ve Personel için
+=====================
+- Müşteri listesi (class Attribute) -> Dictionary kullanılacak, TCKN key olacak
+- TCKN
+- Müşteri Adı
+- Müşteri Soyadı
+- Müşteri Adres
+- Müşteri İl
+- Müşteri İlçe
+- Müşteri Tel // regular expression kullanılacak
+- Müşteri Mail // regular expression kullanılacak
+
+
+
+Personel Tanımı (class)
+=====================
+- Personel listesi (class Attribute) -> Dictionary kullanılacak, TCKN key olacak
+- TCKN
+- Personel Adı
+- Personel Soyadı
+- Personel Adres
+- Personel İl
+- Personel İlçe
+- Personel Tel // regular expression kullanılacak
+- Personel Gorevi
+
+
+
+Araç Satış Yönetim Sistemi (Class)
+===================================
+
+
+bu class içinde
+
+- Hoşgelsiniz mesajı
+- Kullanım Klavuzu (yardım mensuu gibi basit birşey konulabilir)
+- Ayrılırken yapılcak işlemler yazpılabilir mesela güle güle ekranı vb
+- sistem ayarları (mesela tarih saat ayarları - tabi bunun için şimdili ksadene bir fonksiyon koyup print ile ayaral yapıldı yazsanız yeterli maksat bu tarz bir kurguyu kullanmak)
+
+Bu class da MenuYonetim Classından faydalanacak. MenuYonetim den buraya buradan Menu Yonetimine geçiş yapılabilmeli
+
+
+Menu Yonetimi (Class)
+==================================
+
+Bütün işlemlerin döndüğü, üstteki class ların kullanılarak,
+- Araç ekleme, silme, düzenleme, arama
+- Müsteri ekleme, silme, düzenleme, arama
+- Personel ekleme, silme, düzenleme, arama
+- Fatura ekleme, silme, düzenleme, arama
+
+Bu class ana menu ve alt manuler barındırmalı.
+
+ilk olarak kullanıcıya ana menu seçtirilmeli
+- Araç Yonetimi (1)
+- Müsteri Yonetimi (2)
+- Personel Yonetimi (3)
+- Fatura Yonetimi (4)
+
+daha sonra alt menu sunulmalı
+
+Alt Menu Orneği
+
+- Araç Yonetimi (Ana Menu)
+    - Arac Ekle (1)
+    - Araç Bul (2)
+    - Araç Sil (3)
+    - Araç Düzenle (4)
+
+
+
+
+
+
+
+Araç Satmak demek aslında sisteme fatura eklemek anlamına geliyor.
+Bu durumda Fatura Yonetimi altındaki fatura ekleme menusu ile satış yapılmış olacak
+
+
+Araç satarken dikkat edilecek durumlar.
+==========================================
+- Satılacak Araç araç listesinden seçtirilmeli.
+- Müsteri müşteri listesinden seçtirilmeli. Bu durumda fatıra kesilirken müşeri arama/bulma fonksiyonu çağrılmalı eğer yoksa yeni keyıt denierek kaydetme fonksiyonu çağrılmalı
+- Personel Bilgisi personel listesinden alınmalı. ancak burada ufak bir incelik var uygulama ilkez çalıştırıldığına uygulamayı çalıştıran personel kimlilk numarasını girmeli eğer ilgili TCKN personel listesinde geçiyorsa uygulama açılmalı ve bu personel bilgisini bir değişkende tutmalı. Satış yapılırken bu persone bilgisi faturaya yazılmalı
+- Aynı fatura üzerinden birden fazla araç satılacağı için araç seçimi yapılırken birden fazla araç seçimine müsade etmeli. örneğin ford focus alacak müsteri aynı fatura ile fiat egea da alak istiyorsa satıcı listeden ikinci otomobili de faturadaki araç listesine ekleyebilmeli
+
+
+
+Dikkat edilecek diğer hususlar
+==========================================
+- DRY (Dont Repeat Yourself) kendinizi tekrar etmeyin. eğer bir iş bir yerde yapıldıysa bir daha yapamayın.
+- Bir iş birden fazla yerde kulalnılcaksa onu fonksiyon oarak yazığ çağırın
+- Menu yonetimi için isterseniz bir class
+- sistemde silinecek araç eğer daha once bir satışta kullanıldıysa silinenemeli ve değiştirilememeli
+- sistemdeki bir müşteriye araç satıldıysa silenemeli ve sadece adres ve telefonu değiştirilebilmeli
+- sistemdeki bir personel daha once araç satışı yaptıysa silinememeli ve sadece adres ve telefonu değiştirlebilmeli
+
+
+

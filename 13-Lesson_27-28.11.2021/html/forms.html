@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Formlar</title>
+  </head>
+  <body>
+    <nav>
+      <a href="2tablolar.html">
+        <h2>tablolar</h2>
+      </a>
+
+      <a href="3listeler.html">
+        <h2>listeler</h2>
+      </a>
+
+      <a href="4div_html5sections.html"> Div - Section</a>
+
+      <a href="5iframe.html"> <h3>iframe</h3> </a>
+      <a href="6code_block.html">Kod Blok</a>
+
+      <a href="7forms.html">formlar</a>
+    </nav>
+
+    <br /><br /><br /><br />
+
+    <form action="/formu_isle">
+      <fieldset>
+        <legend>Kişisel Bilgiler</legend>
+
+        <label>Ad:</label>
+        <input type="text" id="txtAd" />
+        <br />
+        <label>Doğum Yılı:</label>
+        <input type="date" id="txtDate" />
+
+        <br />
+        <label>Takım:</label>
+        <select name="takim">
+          <option value="gs">Galatasaray</option>
+          <option value="fb">Fenerbahçe</option>
+          <option value="bjk">Beşiktaş</option>
+        </select>
+
+        <br />
+
+        <input list="tarayicilar" />
+        <datalist id="tarayicilar">
+          <option value="Google Chrome"></option>
+          <option value="Mozilla Firefox"></option>
+          <option value="Opera"></option>
+          <option value="Safari"></option>
+          <option value="Edge"></option>
+          <option value="Internet Explorer"></option>
+        </datalist>
+
+        <br />
+        <label>favori renginiz</label>
+        <input type="color" />
+
+        <br />
+        <label>Cinsiyet:</label>
+
+        <label>Erkek:</label>
+        <input type="radio" name="cinsiyet" value="Erkek" />
+        <label>kadın:</label>
+        <input type="radio" name="cinsiyet" value="Kadın" />
+
+        <br />
+        <label>Hobiler:</label>
+        <label>Spor:</label>
+        <input type="checkbox" value="Spor" />
+        <label>Kitap:</label>
+        <input type="checkbox" value="Kitap" />
+        <label>Sinema:</label>
+        <input type="checkbox" value="Sinema" />
+      </fieldset>
+
+      <fieldset>
+        <legend>Mesleki Bilgiler</legend>
+        <label>Mail</label>
+        <input type="email" />
+        <br />
+        <label>Tel</label>
+        <input type="tel" placeholder="(___)___ __ __" />
+        <br />
+        <label>password</label>
+        <input type="password" />
+        <br />
+        <label>Zaman</label>
+        <input type="time" />
+        <br />
+
+        <label>knedinizi tanıtınız</label> <br />
+        <textarea cols="20" rows="10"></textarea>
+
+        <br />
+        <input width="200" type="range" min="0" max="100" step="20" />
+      </fieldset>
+
+      <button type="submit">Gönder</button>
+      <button type="reset">Temizle</button>
+      <button type="button">Pop Up Aç</button>
+    </form>
+
+    <br /><br /><br /><br />
+
+    <a href="https://prototurk.com/html/formlar">Formlar</a> <br />
+    <a href="https://www.w3schools.com/html/html_forms.asp">Formlar</a> <br />
+  </body>
+</html>

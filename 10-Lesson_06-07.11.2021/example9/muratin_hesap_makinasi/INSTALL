@@ -1,0 +1,8 @@
+
+muratin_hesap_makinasi programını indirdiğiniz için teşekkürler.
+
+Kurulum yapmak için alttaki komutu kullanınız
+
+```
+python -m pip install .
+```
