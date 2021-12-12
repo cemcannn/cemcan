@@ -1,0 +1,8 @@
+https://docs.scrapy.org/en/latest/intro/tutorial.html
+
+
+
+test modulleri
+
+https://docs.python.org/3/library/unittest.html
+https://docs.pytest.org/en/6.2.x/

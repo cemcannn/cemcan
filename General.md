@@ -30,6 +30,7 @@
 - logical error : Mantık hatası(1'in 0'a bölünmesi gibi)
 - test driven development : Test kod yazma
 - acceptance criteria : Kabul kriterleri
+- Behavior-Driven Development 
 
 ---
 
@@ -61,21 +62,21 @@
 - [Google Fonts](https://fonts.google.com/) <!-- Google fontları çekebiliyoruz. -->
 - Adobe Dreamweaver kod yazmadan internet sitesi yapmaya yarayan program. (Sürükle bırak mantığı)
 - [Theme Forest](https://themeforest.net/) <!-- Örnek web siteleri -->
-- [Youtube - Bilişim Dünyası - Bootsrap 4 Dersleri]https://www.youtube.com/playlist?list=PLn7K8qhovgadaSGa_hxg2uhTonqO36Kyh <!-- Bilişim Dünyası youtube kanalı bootstrap 4, css framework ile web site tasarımı dersleri -->
+- [Youtube - Bilişim Dünyası - Bootsrap 4 Dersleri](https://www.youtube.com/playlist?list=PLn7K8qhovgadaSGa_hxg2uhTonqO36Kyh) <!-- Bilişim Dünyası youtube kanalı bootstrap 4, css framework ile web site tasarımı dersleri -->
 - [Netlify](https://www.netlify.com/) <!-- Ücretsiz hosting sitesi -->
-- https://jsfiddle.net/ <!--HTML CSS JavaScript kodu aynı anda yazıp sonuç yazabileceğin site>
-- https://www.azkod.com/html
-- https://www.azkod.com/css
-- https://www.azkod.com/javascript
-- https://prototurk.com/html/baslangic
-- https://prototurk.com/css
-- https://www.btdersleri.com/html-dersleri
-- https://www.btdersleri.com/css-dersleri
-- https://www.btdersleri.com/javascript-dersleri
-- https://www.w3schools.com/js/
-- https://www.w3schools.com/js/js_htmldom.asp
-- https://www.yazilimbilisim.net/javascript/javascript-html-dom/
-- https://caniuse.com/es6-class <!--Hangi tarayıcının hangi teknolojiyi ne kadar desteklediğini gösteriyor.-->
+- [JSFiddle](https://jsfiddle.net/) <!--HTML CSS JavaScript kodu aynı anda yazıp sonuç yazabileceğin site-->
+- [Azkod HTML](https://www.azkod.com/html)
+- [Azkod CSS](https://www.azkod.com/css)
+- [Azkod JavaScript](https://www.azkod.com/javascript)
+- [Proturk HTML](https://prototurk.com/html/baslangic)
+- [Prototurk CSS](https://prototurk.com/css)
+- [BTDersleri HTML](https://www.btdersleri.com/html-dersleri)
+- [BTDersleri CSS](https://www.btdersleri.com/css-dersleri)
+- [BTDersleri JavaScript](https://www.btdersleri.com/javascript-dersleri)
+- [W3 Schools JavaScript](https://www.w3schools.com/js/)
+- [W3 Schools JavaScript HTML Dom](https://www.w3schools.com/js/js_htmldom.asp)
+- [Yazılı Bilişim JavaScript HTML Dom](https://www.yazilimbilisim.net/javascript/javascript-html-dom/)
+- [Can I Use](https://caniuse.com/es6-class) <!--Hangi tarayıcının hangi teknolojiyi ne kadar desteklediğini gösteriyor.-->
 
 ---
 
@@ -86,7 +87,7 @@
 - [DB Engines Ranking](https://db-engines.com/en/ranking) <!-- Database management system ranking-->
 - [Selenium](https://www.selenium.dev/) <!-- Web browser otomasyonu yapar.-->
 - [UIPath](https://www.uipath.com/) <!-- Her şeyin otomasyonunu yapar.-->
-- https://jsfiddle.net/ <!--HTML CSS JavaScript kodu aynı anda yazıp sonuç yazabileceğin site>
+- [Scrapy](https://scrapy.org/) <!--Scrap için yararlı bir program-->
 ---
 
 ## YOUTUBE

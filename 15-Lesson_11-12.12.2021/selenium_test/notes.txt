@@ -1,0 +1,38 @@
+test siteleri
+- çok iyi bir site : https://demoqa.com/
+- https://www.seleniumeasy.com/python
+- http://www.uitestingplayground.com/
+
+tavsiye siteler
+
+- https://chercher.tech/python/install-selenium-python
+- https://iqss.github.io/dss-webscrape/
+- https://www.toolsqa.com/selenium-webdriver/selenium-tutorial/
+
+selenium python kulurum
+
+https://selenium-python.readthedocs.io/installation.html
+
+windows :  pip install selenium
+mac ve linux :  pip install selenium
+
+Chrome:	https://sites.google.com/chromium.org/driver/
+Edge:	https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/
+Firefox:	https://github.com/mozilla/geckodriver/releases
+Safari:	https://webkit.org/blog/6900/webdriver-support-in-safari-10/
+
+biz çalışmlarımızda alttaki kullandık
+https://chromedriver.storage.googleapis.com/index.html?path=95.0.4638.69/
+
+bütün versiyonların linki :
+https://sites.google.com/chromium.org/driver/downloads?authuser=0
+
+
+
+
+
+
+
+
+
+
