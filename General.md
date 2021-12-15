@@ -88,6 +88,7 @@
 - [Selenium](https://www.selenium.dev/) <!-- Web browser otomasyonu yapar.-->
 - [UIPath](https://www.uipath.com/) <!-- Her şeyin otomasyonunu yapar.-->
 - [Scrapy](https://scrapy.org/) <!--Scrap için yararlı bir program-->
+
 ---
 
 ## YOUTUBE
