@@ -115,3 +115,23 @@ Veri analizi için ise spyder
 - Domain Driven Design (DDD) Çok fazla business kuralları olabileceği için buradaki karmaşıklığı yönetebilmek ve kodlarımızı sürdürülebilir kılmak için bu yaklaşımı kullanabiliriz.
 
 **_IT dünyasında en iyi iletşim iletişimsizliktir._**
+
+---
+
+![Lorem Picsum Gorsel](https://picsum.photos/200/400)
+***
+
+> Blockquote
+
+---
+
+```python
+print("Hello World")
+```
+
+```javascript
+console.log("Hello World")
+```
+
+---
+
