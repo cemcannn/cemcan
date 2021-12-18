@@ -40,7 +40,7 @@
 
 ---
 
-## YARARLI PYTHON SİTELERİ
+## PYTHON KAYNAKLAR
 - [PyPi](https://pypi.org/) 
 - [Real Python](https://realpython.com/) <!--Python tutorial ları var.-->
 - [Yazbel](https://python-istihza.yazbel.com) <!--Türkçe Python kaynağı-->
@@ -85,10 +85,19 @@
 - [Miro](https://miro.com) <!--Diyagram çizim sitesi, iş diyagramları çizebiliyorsun.-->
 - [Atlassian](https://www.atlassian.com/software/jira) <!-- İş takip sitesi -->
 - [DB Engines Ranking](https://db-engines.com/en/ranking) <!-- Database management system ranking-->
-- [Selenium](https://www.selenium.dev/) <!-- Web browser otomasyonu yapar.-->
 - [UIPath](https://www.uipath.com/) <!-- Her şeyin otomasyonunu yapar.-->
 - [Scrapy](https://scrapy.org/) <!--Scrap için yararlı bir program-->
 - [Hacker Rank](https://www.hackerrank.com/) <!-- Code exercise-->
+
+---
+
+## SELENIUM KAYNAKLAR
+
+- [Selenium](https://www.selenium.dev/) <!-- Web browser otomasyonu yapar.-->
+- [Barış Sekici - XPath Kullanımı](http://www.barisekici.com/2020/01/19/xpath-kullanimi/) <!--XPath kullanımı>
+- [Ceyhun Enki Aksan - XPath Kullanımı](https://ceaksan.com/tr/xpath-nedir-nasil-kullanilir) <!--XPath kullanımı>
+- [Sevil Ayal - XPath Kullanımı](https://sevilayal.medium.com/etkili-xpath-kullan%C4%B1m%C4%B1-6c5b58d3c055) <!--XPath kullanımı>
+- [Selenium Python - Locating Elements](https://selenium-python.readthedocs.io/locating-elements.html)
 - [Play Wright](https://playwright.dev/python/) <!-- Selenium alternatifi, test ve otomasyon programı-->
 
 ---

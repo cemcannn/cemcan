@@ -1,0 +1,19 @@
+### EXAMPLES
+examples_selenium klasöündeki örnekler. klasörlerdeki readme dosyalarını okumalısın
+
+- example1 : setup ve teardown orneği var. 1 çalışan 2 hata veren bir örnek.  alttaki komutla çalıştırınız
+
+
+test_pytest test_setup_teardown.py --maxfail=3 --html=report.html
+
+- example2 : tam bir form baştan sona doldurulup submit ediliyor.
+
+ pytest test_form_doldurma.py --maxfail=10
+
+- example3:
+
+https://demoqa.com/books
+adresindeki kitaplarla akalı
+
+- example4:
+haberler.com dakş arama cubuguna türkiye yazıp arama sonuçlarını kaydediyoru.
