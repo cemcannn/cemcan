@@ -89,6 +89,7 @@
 - [UIPath](https://www.uipath.com/) <!-- Her şeyin otomasyonunu yapar.-->
 - [Scrapy](https://scrapy.org/) <!--Scrap için yararlı bir program-->
 - [Hacker Rank](https://www.hackerrank.com/) <!-- Code exercise-->
+- [Play Wright](https://playwright.dev/python/) <!-- Selenium alternatifi, test ve otomasyon programı-->
 
 ---
 
