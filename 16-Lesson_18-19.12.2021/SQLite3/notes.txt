@@ -1,0 +1,23 @@
+https://www.sqlite.org/datatype3.html
+
+https://db-engines.com/en/ranking
+
+https://docs.python.org/3/library/sqlite3.html
+
+
+RDBMS : Relational Database Management Systems
+
+postgres gui :https://www.pgadmin.org/download/pgadmin-4-windows/
+
+ms sql gui : https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15
+
+cross platform gui 1: https://www.jetbrains.com/datagrip/
+
+cross platform gui 2: 
+- DbVisualizer
+- DBeaver
+- 
+
+
+
+sqlite cli : https://sqlite.org/cli.html

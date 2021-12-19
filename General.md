@@ -84,7 +84,6 @@
 - [Chocolatey](ttps://chocolatey.org/) <!-- ? -->
 - [Miro](https://miro.com) <!--Diyagram çizim sitesi, iş diyagramları çizebiliyorsun.-->
 - [Atlassian](https://www.atlassian.com/software/jira) <!-- İş takip sitesi -->
-- [DB Engines Ranking](https://db-engines.com/en/ranking) <!-- Database management system ranking-->
 - [UIPath](https://www.uipath.com/) <!-- Her şeyin otomasyonunu yapar.-->
 - [Scrapy](https://scrapy.org/) <!--Scrap için yararlı bir program-->
 - [Hacker Rank](https://www.hackerrank.com/) <!-- Code exercise-->
@@ -101,6 +100,11 @@
 - [Play Wright](https://playwright.dev/python/) <!-- Selenium alternatifi, test ve otomasyon programı-->
 
 ---
+
+## SQL KAYNAKLAR
+
+- [Python - Sqlite3 Kullanımı](https://docs.python.org/3/library/sqlite3.html) <!-- Python SQLite3 kullanımı -->
+- [DB Engines Ranking](https://db-engines.com/en/ranking) <!-- Database management system ranking-->
 
 ## YOUTUBE
 - UĞUR UMUTOĞLU KANALINI TAKİP YAZILIMCILIK İLE ALAKALI
