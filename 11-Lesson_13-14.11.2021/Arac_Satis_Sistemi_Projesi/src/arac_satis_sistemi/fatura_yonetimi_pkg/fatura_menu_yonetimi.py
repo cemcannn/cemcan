@@ -1,10 +1,7 @@
 # import menu_yonetimi
 from arac_yonetimi_pkg import arac_veri_yonetimi
-from arac_yonetimi_pkg import arac
 from musteri_yonetimi_pkg import musteri_veri_yonetimi
-from musteri_yonetimi_pkg import musteri
 from personel_yonetimi_pkg import personel_veri_yonetimi
-from personel_yonetimi_pkg import personel
 from .fatura import Fatura
 from . import fatura_yonetimi
 import random
@@ -42,9 +39,12 @@ def __fatura_ekle(fatura:Fatura):
     else:
         print("Daha önce girdiğiniz değeri kabul etmek için enter tuşuna basınız.")
         fatura_no           = input(f"Fatura no giriniz ({fatura.no}) : ")
-        arac                = input(f"Fatura adını giriniz ({fatura.arac}): ")
-        musteri             = input(f"Fatura soyadını giriniz ({fatura.musteri}) : ")
-        personel            = input(f"Fatura soyadını giriniz ({fatura.personel}) : ")
+        arac_veri_yonetimi.arac_listele()
+        arac                    = input("Araç benzersiz kod giriniz : ")
+        musteri_veri_yonetimi.musteri_listele()
+        musteri                 = input("Müşteri benzersiz kod giriniz : ")
+        personel_veri_yonetimi.personel_listele()
+        personel                = input("Personel benzersiz kod giriniz : ")
         fatura_tutari       = input(f"Fatura adresini giriniz ({fatura.tutar}) : ")
         fatura_tarihi       = input(f"Fatura telefonunu giriniz ({fatura.tarih}) : ")
 
@@ -55,10 +55,10 @@ def __fatura_ekle(fatura:Fatura):
             arac = fatura.arac
 
         if musteri == "":
-            fatura_musteri = fatura.musteri
+            musteri = fatura.musteri
             
         if personel == "":
-            fatura_musteri = fatura.personel
+            personel = fatura.personel
         
         if fatura_tutari == "":
             fatura_tutari = fatura.tutar
