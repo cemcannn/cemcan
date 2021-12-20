@@ -1,6 +1,7 @@
 # import menu_yonetimi
 from .musteri import Musteri
 from . import musteri_yonetimi
+import random
 
 menu_metni = """ Seçenekler:
                 [1] Müşteri Ekle 
@@ -11,12 +12,13 @@ menu_metni = """ Seçenekler:
 
 def __musteri_ekle(musteri:Musteri):
     if musteri == None:
-        musteri_tckn        = input("TCKN giriniz : ")
-        musteri_adi         = input("Müşteri adını giriniz : ")
-        musteri_soyadi      = input("Müşteri soyadını giriniz : ")
-        musteri_adresi      = input("Müşteri adresini giriniz : ")
-        musteri_telefonu    = input("Müşteri telefonunu giriniz : ")
-        musteri = Musteri(musteri_tckn,musteri_adi,musteri_soyadi,musteri_adresi,musteri_telefonu)
+        musteri_benzersiz_kod   = random.randint(1, 1000000)
+        musteri_tckn            = input("TCKN giriniz : ")
+        musteri_adi             = input("Müşteri adını giriniz : ")
+        musteri_soyadi          = input("Müşteri soyadını giriniz : ")
+        musteri_adresi          = input("Müşteri adresini giriniz : ")
+        musteri_telefonu        = input("Müşteri telefonunu giriniz : ")
+        musteri = Musteri(musteri_benzersiz_kod, musteri_tckn, musteri_adi, musteri_soyadi, musteri_adresi, musteri_telefonu)
 
         sonuc = musteri_yonetimi.musteri_ekle(musteri)
 
@@ -35,21 +37,21 @@ def __musteri_ekle(musteri:Musteri):
         musteri_telefonu    = input(f"Müşteri telefonunu giriniz ({musteri.tel}) : ")
 
         if musteri_tckn == "":
-            musteri_tckn = musteri_tckn
+            musteri_tckn = musteri.tckn
         
         if musteri_adi == "":
-            musteri_adi = musteri_adi
+            musteri_adi = musteri.adi
 
         if musteri_soyadi == "":
-            musteri_soyadi = musteri_soyadi
+            musteri_soyadi = musteri.soyadi
         
         if musteri_adresi == "":
-            musteri_adresi = musteri_adresi
+            musteri_adresi = musteri.adres
         
         if musteri_telefonu == "":
-            musteri_telefonu = musteri_telefonu
+            musteri_telefonu = musteri.tel
 
-        musteri = Musteri(musteri.tckn, musteri_adi, musteri_soyadi, musteri_adresi, musteri_telefonu)
+        musteri = Musteri(musteri.benzersiz_kod, musteri_tckn, musteri_adi, musteri_soyadi, musteri_adresi, musteri_telefonu)
 
         sonuc = musteri_yonetimi.musteri_ekle(musteri)
 
