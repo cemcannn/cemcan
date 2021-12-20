@@ -1,6 +1,10 @@
 # import menu_yonetimi
+from arac_yonetimi_pkg import arac_veri_yonetimi
 from arac_yonetimi_pkg import arac
+from musteri_yonetimi_pkg import musteri_veri_yonetimi
 from musteri_yonetimi_pkg import musteri
+from personel_yonetimi_pkg import personel_veri_yonetimi
+from personel_yonetimi_pkg import personel
 from .fatura import Fatura
 from . import fatura_yonetimi
 import random
@@ -17,11 +21,15 @@ def __fatura_ekle(fatura:Fatura):
     if fatura == None:
         fatura_benzersiz_kod    = random.randint(1, 1000000)
         fatura_no               = input("Fatura no giriniz : ")
-        arac                    = arac.Arac
-        musteri                 = musteri.Musteri
-        fatura_tutari           = input("Fatura tutarını giriniz : ")
+        arac_veri_yonetimi.arac_listele()
+        arac                    = input("Araç benzersiz kod giriniz : ")
+        musteri_veri_yonetimi.musteri_listele()
+        musteri                 = input("Müşteri benzersiz kod giriniz : ")
+        personel_veri_yonetimi.personel_listele()
+        personel                = input("Personel benzersiz kod giriniz : ")
+        fatura_tutari           = input("Araç benzersiz kod giriniz : ")
         fatura_tarihi           = datetime.now()
-        fatura = fatura(fatura_benzersiz_kod, fatura_no, arac, musteri, fatura_tutari, fatura_tarihi)
+        fatura = fatura(fatura_benzersiz_kod, fatura_no, arac, musteri, personel, fatura_tutari, fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
@@ -36,6 +44,7 @@ def __fatura_ekle(fatura:Fatura):
         fatura_no           = input(f"Fatura no giriniz ({fatura.no}) : ")
         arac                = input(f"Fatura adını giriniz ({fatura.arac}): ")
         musteri             = input(f"Fatura soyadını giriniz ({fatura.musteri}) : ")
+        personel            = input(f"Fatura soyadını giriniz ({fatura.personel}) : ")
         fatura_tutari       = input(f"Fatura adresini giriniz ({fatura.tutar}) : ")
         fatura_tarihi       = input(f"Fatura telefonunu giriniz ({fatura.tarih}) : ")
 
@@ -47,6 +56,9 @@ def __fatura_ekle(fatura:Fatura):
 
         if musteri == "":
             fatura_musteri = fatura.musteri
+            
+        if personel == "":
+            fatura_musteri = fatura.personel
         
         if fatura_tutari == "":
             fatura_tutari = fatura.tutar
@@ -54,7 +66,7 @@ def __fatura_ekle(fatura:Fatura):
         if fatura_tarihi == "":
             fatura_tarihi = fatura.tarih
 
-        fatura = fatura(fatura.benzersiz_kod, fatura_no, arac, musteri, fatura_tutari, fatura_tarihi)
+        fatura = fatura(fatura.benzersiz_kod, fatura_no, arac, musteri, personel, fatura_tutari, fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
