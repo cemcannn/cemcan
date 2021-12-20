@@ -7,6 +7,9 @@ def musteri_ekle(musteri:Musteri):
 def musteri_sil(benzersiz_kod:int):
     __musteri_listesi.pop(benzersiz_kod)
 
+def musteri_getir_benzersizkod(benzersiz_kod:int) -> Musteri: 
+    return __musteri_listesi[benzersiz_kod] 
+
 def musteri_getir_tckn(tckn:int):
     for musteri in __musteri_listesi.items():
         if musteri.tckn == tckn:

@@ -7,6 +7,9 @@ def personel_ekle(personel:Personel):
 def personel_sil(benzersiz_kod:int):
     __personel_listesi.pop(benzersiz_kod)
 
+def personel_getir_benzersizkod(benzersiz_kod:int) -> Personel: 
+    return __personel_listesi[benzersiz_kod] 
+
 def personel_getir_tckn(tckn:int):
     for personel in __personel_listesi.items():
         if personel.tckn == tckn:

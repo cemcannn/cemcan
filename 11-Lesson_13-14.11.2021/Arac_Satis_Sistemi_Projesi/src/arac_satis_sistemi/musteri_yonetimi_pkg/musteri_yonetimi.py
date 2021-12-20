@@ -64,6 +64,6 @@ def musteri_duzenle(musteri:Musteri) -> (bool,str):
     
 def arac_getir(benzersiz_kod: int) -> Musteri:
     try:
-        return musteri_veri_yonetimi.musteri_getir_tckn(benzersiz_kod)
+        return musteri_veri_yonetimi.musteri_getir_benzersizkod(benzersiz_kod)
     except:
         return Musteri()

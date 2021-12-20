@@ -64,6 +64,6 @@ def personel_duzenle(personel:Personel) -> (bool,str):
     
 def arac_getir(benzersiz_kod: int) -> Personel:
     try:
-        return personel_veri_yonetimi.personel_getir_tckn(benzersiz_kod)
+        return personel_veri_yonetimi.personel_getir_benzersizkod(benzersiz_kod)
     except:
         return Personel()
