@@ -1,4 +1,4 @@
-# import menu_yonetimi
+import menu_yonetimi
 from .personel import Personel
 from . import personel_yonetimi
 import random
@@ -18,7 +18,8 @@ def __personel_ekle(personel:Personel):
         personel_soyadi          = input("Personel soyadını giriniz : ")
         personel_adresi          = input("Personel adresini giriniz : ")
         personel_telefonu        = input("Personel telefonunu giriniz : ")
-        personel = Personel(personel_benzersiz_kod, personel_tckn, personel_adi, personel_soyadi, personel_adresi, personel_telefonu)
+        personel_gorevi          = input("Personel görevini giriniz : ")
+        personel = Personel(personel_benzersiz_kod, personel_tckn, personel_adi, personel_soyadi, personel_adresi, personel_telefonu, personel_gorevi)
 
         sonuc = personel_yonetimi.personel_ekle(personel)
 
@@ -35,6 +36,7 @@ def __personel_ekle(personel:Personel):
         personel_soyadi      = input(f"Personel soyadını giriniz ({personel.soyadi}) : ")
         personel_adresi      = input(f"Personel adresini giriniz ({personel.adres}) : ")
         personel_telefonu    = input(f"Personel telefonunu giriniz ({personel.tel}) : ")
+        personel_gorevi      = input(f"Personel görevini giriniz ({personel.gorev}) : ")
 
         if personel_tckn == "":
             personel_tckn = personel.tckn
@@ -51,7 +53,10 @@ def __personel_ekle(personel:Personel):
         if personel_telefonu == "":
             personel_telefonu = personel.tel
 
-        personel = Personel(personel.benzersiz_kod, personel_tckn, personel_adi, personel_soyadi, personel_adresi, personel_telefonu)
+        if personel_gorevi == "":
+            personel_gorevi = personel.gorev
+
+        personel = Personel(personel.benzersiz_kod, personel_tckn, personel_adi, personel_soyadi, personel_adresi, personel_telefonu, personel_gorevi)
 
         sonuc = personel_yonetimi.personel_ekle(personel)
 
@@ -78,8 +83,7 @@ def menu_getir():
             # fatura_menu_yonetimi.menu_getir()
             pass
         elif secenek == 5:
-            # menu_yonetimi.ana_menu_getir()
-            pass
+            menu_yonetimi.ana_menu_getir()
         else:
             print("Lütfen doğru seçeneği seçiniz!")            
             

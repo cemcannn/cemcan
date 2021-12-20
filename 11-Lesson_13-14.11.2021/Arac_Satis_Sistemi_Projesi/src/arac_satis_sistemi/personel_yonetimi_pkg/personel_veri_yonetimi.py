@@ -2,7 +2,7 @@ from .personel import Personel
 __personel_listesi=dict()
 
 def personel_ekle(personel:Personel):
-    __personel_listesi[personel.benzersiz_kod]=personel
+    __personel_listesi[personel.benzersiz_kod]=[personel.tckn,personel.adi,personel.soyadi,personel.adres,personel.tel,personel.gorev]
 
 def personel_sil(benzersiz_kod:int):
     __personel_listesi.pop(benzersiz_kod)

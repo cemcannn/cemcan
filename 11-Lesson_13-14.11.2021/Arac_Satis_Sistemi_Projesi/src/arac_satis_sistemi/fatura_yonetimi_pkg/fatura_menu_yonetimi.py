@@ -1,7 +1,7 @@
-# import menu_yonetimi
-from arac_yonetimi_pkg import arac_veri_yonetimi
-from musteri_yonetimi_pkg import musteri_veri_yonetimi
-from personel_yonetimi_pkg import personel_veri_yonetimi
+import menu_yonetimi
+from arac_yonetimi_pkg import arac_veri_yonetimi as avy
+from musteri_yonetimi_pkg import musteri_veri_yonetimi as mvy
+from personel_yonetimi_pkg import personel_veri_yonetimi as pvy
 from .fatura import Fatura
 from . import fatura_yonetimi
 import random
@@ -18,15 +18,15 @@ def __fatura_ekle(fatura:Fatura):
     if fatura == None:
         fatura_benzersiz_kod    = random.randint(1, 1000000)
         fatura_no               = input("Fatura no giriniz : ")
-        arac_veri_yonetimi.arac_listele()
-        arac                    = input("Araç benzersiz kod giriniz : ")
-        musteri_veri_yonetimi.musteri_listele()
-        musteri                 = input("Müşteri benzersiz kod giriniz : ")
-        personel_veri_yonetimi.personel_listele()
-        personel                = input("Personel benzersiz kod giriniz : ")
+        print(avy.arac_listele())
+        fatura_arac                    = avy.arac_getir_benzersizkod(input("Araç benzersiz kod giriniz : "))
+        print(mvy.musteri_listele())
+        fatura_musteri                 = mvy.musteri_getir_benzersizkod(input("Müşteri benzersiz kod giriniz : "))
+        print(pvy.personel_listele())
+        fatura_personel                = pvy.personel_getir_benzersizkod(input("Personel benzersiz kod giriniz : "))
         fatura_tutari           = input("Araç benzersiz kod giriniz : ")
         fatura_tarihi           = datetime.now()
-        fatura = fatura(fatura_benzersiz_kod, fatura_no, arac, musteri, personel, fatura_tutari, fatura_tarihi)
+        fatura = fatura(fatura_benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
@@ -39,25 +39,25 @@ def __fatura_ekle(fatura:Fatura):
     else:
         print("Daha önce girdiğiniz değeri kabul etmek için enter tuşuna basınız.")
         fatura_no           = input(f"Fatura no giriniz ({fatura.no}) : ")
-        arac_veri_yonetimi.arac_listele()
-        arac                    = input("Araç benzersiz kod giriniz : ")
-        musteri_veri_yonetimi.musteri_listele()
-        musteri                 = input("Müşteri benzersiz kod giriniz : ")
-        personel_veri_yonetimi.personel_listele()
-        personel                = input("Personel benzersiz kod giriniz : ")
+        print(avy.arac_listele())
+        fatura_arac                = input("Araç benzersiz kod giriniz ({fatura.arac}): ")
+        print(mvy.musteri_listele())
+        fatura_musteri             = input("Müşteri benzersiz kod giriniz ({fatura.musteri}): ")
+        print(pvy.personel_listele())
+        fatura_personel            = pvy.personel_getir_tckn(input("Personel benzersiz kod giriniz ({fatura.personel}): "))
         fatura_tutari       = input(f"Fatura adresini giriniz ({fatura.tutar}) : ")
         fatura_tarihi       = input(f"Fatura telefonunu giriniz ({fatura.tarih}) : ")
 
         if fatura_no == "":
             fatura_no = fatura.no
         
-        if arac == "":
-            arac = fatura.arac
+        if fatura_arac == "":
+            fatura_arac = fatura.arac
 
-        if musteri == "":
+        if fatura_musteri == "":
             musteri = fatura.musteri
             
-        if personel == "":
+        if fatura_personel == "":
             personel = fatura.personel
         
         if fatura_tutari == "":
@@ -66,7 +66,7 @@ def __fatura_ekle(fatura:Fatura):
         if fatura_tarihi == "":
             fatura_tarihi = fatura.tarih
 
-        fatura = fatura(fatura.benzersiz_kod, fatura_no, arac, musteri, personel, fatura_tutari, fatura_tarihi)
+        fatura = fatura(fatura.benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
@@ -93,8 +93,7 @@ def menu_getir():
             # fatura_menu_yonetimi.menu_getir()
             pass
         elif secenek == 5:
-            # menu_yonetimi.ana_menu_getir()
-            pass
+            menu_yonetimi.ana_menu_getir()
         else:
             print("Lütfen doğru seçeneği seçiniz!")            
             

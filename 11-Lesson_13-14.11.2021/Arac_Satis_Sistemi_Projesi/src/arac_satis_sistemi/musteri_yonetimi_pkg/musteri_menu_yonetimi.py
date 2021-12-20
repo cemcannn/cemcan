@@ -1,4 +1,4 @@
-# import menu_yonetimi
+import menu_yonetimi
 from .musteri import Musteri
 from . import musteri_yonetimi
 import random
@@ -78,8 +78,7 @@ def menu_getir():
             # fatura_menu_yonetimi.menu_getir()
             pass
         elif secenek == 5:
-            # menu_yonetimi.ana_menu_getir()
-            pass
+            menu_yonetimi.ana_menu_getir()
         else:
             print("Lütfen doğru seçeneği seçiniz!")            
             

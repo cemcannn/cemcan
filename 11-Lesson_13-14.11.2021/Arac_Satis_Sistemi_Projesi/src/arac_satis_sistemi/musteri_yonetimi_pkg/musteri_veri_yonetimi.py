@@ -2,7 +2,7 @@ from .musteri import Musteri
 __musteri_listesi=dict()
 
 def musteri_ekle(musteri:Musteri):
-    __musteri_listesi[musteri.benzersiz_kod]=musteri
+    __musteri_listesi[musteri.benzersiz_kod]=[musteri.tckn,musteri.adi,musteri.soyadi,musteri.adres,musteri.tel]
 
 def musteri_sil(benzersiz_kod:int):
     __musteri_listesi.pop(benzersiz_kod)

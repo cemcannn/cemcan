@@ -1,7 +1,8 @@
 from .arac import Arac # Arac dosyasından Arac class ını çekiyoruz fakat nokta ne işe yarıyor??
 from . import arac_yonetimi # Aynı dizinde arac yonetimi dosyasını çekiyoruz.
 import random # Random modülünü import ediyoruz.
-# import menu_yonetimi
+import menu_yonetimi
+from . import arac_veri_yonetimi
 
 __menu_metni = """
                 Seçenekler :
@@ -13,12 +14,12 @@ __menu_metni = """
 
 def __arac_ekle(arac:Arac): # Araç ekle fonksiyonu oluşturup keyword argument olarak arac parametresini Arac classına eşliyoruz.
     if arac==None: # Eğer arac parametresi boş ise:
-        arac_benzersiz_kod = random.randint(1, 1000000) # Arac_benzersiz kod adında bir değişken  tanımlıyoruz sebebi ise aracın unique bir sayıya sahip olması, bunu da rastgele 1 ile 1000000 arasında bir rakamdan seçmesini sağlıyoruz.
-        arac_serino = input("serino giriniz: ") # Arac seri no değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_marka = input("marka giriniz: ")  # Arac marka değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_model = input("model giriniz: ")  # Arac model değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_fiyat = input("fiyat giriniz: ")  # Arac fiyat değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_renk = input("renk giriniz: ")  # Arac renk değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
+        arac_benzersiz_kod  = random.randint(1, 1000000) # Arac_benzersiz kod adında bir değişken  tanımlıyoruz sebebi ise aracın unique bir sayıya sahip olması, bunu da rastgele 1 ile 1000000 arasında bir rakamdan seçmesini sağlıyoruz.
+        arac_serino         = input("serino giriniz: ") # Arac seri no değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
+        arac_marka          = input("marka giriniz: ")  # Arac marka değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
+        arac_model          = input("model giriniz: ")  # Arac model değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
+        arac_fiyat          = input("fiyat giriniz: ")  # Arac fiyat değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
+        arac_renk           = input("renk giriniz: ")  # Arac renk değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
         arac = Arac(arac_benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk) # Arac değişkenini Arac classına eşitliyoruz.
 
         sonuc = arac_yonetimi.arac_ekle(arac) # Sonuç değişkenine arac yonetimi dosyasında arac ekle fonksiyonunu çalıştırıp oluşturduğumuz arac değişkenini ekliyoruz.
@@ -32,10 +33,10 @@ def __arac_ekle(arac:Arac): # Araç ekle fonksiyonu oluşturup keyword argument 
     else:
         print("Daha önce girdiğiniz değeri kabul etmek için enter tuşuna basınız.")
         arac_serino = input(f"serino giriniz ({arac.serino}):") # Eğer araç seri nosu araç paternine uymuyorsa bizden tekrar seri no istiyor ve araç seri no yazdırıyor.
-        arac_marka = input(f"marka giriniz ({arac.marka}): ")
-        arac_model = input(f"model giriniz ({arac.model}): ")
-        arac_fiyat = input(f"fiyat giriniz ({arac.fiyat}): ")
-        arac_renk = input(f"renk giriniz ({arac.renk}): ")
+        arac_marka  = input(f"marka giriniz ({arac.marka}): ")
+        arac_model  = input(f"model giriniz ({arac.model}): ")
+        arac_fiyat  = input(f"fiyat giriniz ({arac.fiyat}): ")
+        arac_renk   = input(f"renk giriniz ({arac.renk}): ")
 
         if arac_serino == "": # Eğer bir değer vermezsek arac_seri noyu eski değer olarak bırakır.
             arac_serino = arac.serino
@@ -72,14 +73,18 @@ def menu_getir():
 
         elif secenek == 2: # 2. Seçenek Araç Listeleme seçilirse:
             arac_listesi = arac_yonetimi.arac_listele() # Arac yönetimi modülü altında araç listele fonksiyonunu, araç listesi değişkenine eşitliyoruz.
-            for arac in arac_listesi.items(): # Burayı çok anlamadım.
+            for arac in arac_listesi.items(): 
                 print(arac)
+            print(arac_listesi.items())
+            print(arac_listesi.values())
+            print(arac_listesi)
+            print(arac_listesi.keys)
         elif secenek == 3:
             arac_listesi = arac_yonetimi.arac_listele()
         elif secenek == 4:
             pass
         elif secenek == 5:
-            # menu_yonetimi.ana_menu_getir()
+            menu_yonetimi.ana_menu_getir()
             pass
         else:
             print("Lütfen doğru seçeneği seçiniz!")

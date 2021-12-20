@@ -2,7 +2,7 @@ from .fatura import Fatura
 __fatura_listesi=dict()
 
 def fatura_ekle(fatura:Fatura):
-    __fatura_listesi[fatura.benzersiz_kod]=fatura
+    __fatura_listesi[fatura.benzersiz_kod]=[fatura.no,fatura.arac,fatura.musteri,fatura.personel,fatura.tutar,fatura.tarih]
 
 def fatura_sil(benzersiz_kod:int):
     __fatura_listesi.pop(benzersiz_kod)
