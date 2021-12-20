@@ -70,7 +70,7 @@ def menu_getir():
             __personel_ekle(None)
         elif secenek == 2:
             personel_listesi = personel_yonetimi.personel_listele()
-            for personel_key, personel in personel_listesi.items():
+            for personel in personel_listesi.items():
                 print(personel)
         elif secenek == 3:
             personel_listesi = personel_yonetimi.personel_listele()

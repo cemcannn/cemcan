@@ -70,7 +70,7 @@ def menu_getir():
             __musteri_ekle(None)
         elif secenek == 2:
             musteri_listesi = musteri_yonetimi.musteri_listele()
-            for musteri_key, musteri in musteri_listesi.items():
+            for musteri in musteri_listesi.items():
                 print(musteri)
         elif secenek == 3:
             musteri_listesi = musteri_yonetimi.musteri_listele()

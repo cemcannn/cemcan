@@ -72,7 +72,7 @@ def menu_getir():
 
         elif secenek == 2: # 2. Seçenek Araç Listeleme seçilirse:
             arac_listesi = arac_yonetimi.arac_listele() # Arac yönetimi modülü altında araç listele fonksiyonunu, araç listesi değişkenine eşitliyoruz.
-            for arac_key, arac in arac_listesi.items(): # Burayı çok anlamadım.
+            for arac in arac_listesi.items(): # Burayı çok anlamadım.
                 print(arac)
         elif secenek == 3:
             arac_listesi = arac_yonetimi.arac_listele()
