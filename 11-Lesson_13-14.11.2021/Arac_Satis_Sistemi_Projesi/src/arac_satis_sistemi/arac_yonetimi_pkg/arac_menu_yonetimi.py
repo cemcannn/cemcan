@@ -76,9 +76,6 @@ def menu_getir():
             for arac in arac_listesi.items(): 
                 print(arac)
             print(arac_listesi.items())
-            print(arac_listesi.values())
-            print(arac_listesi)
-            print(arac_listesi.keys)
         elif secenek == 3:
             arac_listesi = arac_yonetimi.arac_listele()
         elif secenek == 4:

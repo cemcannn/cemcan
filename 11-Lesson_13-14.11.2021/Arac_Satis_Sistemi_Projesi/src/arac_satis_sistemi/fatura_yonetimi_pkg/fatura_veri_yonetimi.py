@@ -10,9 +10,9 @@ def fatura_sil(benzersiz_kod:int):
 def fatura_getir_benzersizkod(benzersiz_kod:int) -> Fatura: 
     return __fatura_listesi[benzersiz_kod] 
 
-def fatura_getir_faturano(tckn:int):
+def fatura_getir_faturano(no:complex):
     for fatura in __fatura_listesi.items():
-        if fatura.tckn == tckn:
+        if fatura.no == no:
             return fatura
     return None
 

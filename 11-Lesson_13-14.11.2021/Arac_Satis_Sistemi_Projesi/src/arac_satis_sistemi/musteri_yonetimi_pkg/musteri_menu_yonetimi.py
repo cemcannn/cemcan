@@ -17,7 +17,7 @@ def __musteri_ekle(musteri:Musteri):
         musteri_adi             = input("Müşteri adını giriniz : ")
         musteri_soyadi          = input("Müşteri soyadını giriniz : ")
         musteri_adresi          = input("Müşteri adresini giriniz : ")
-        musteri_telefonu        = input("Müşteri telefonunu giriniz : ")
+        musteri_telefonu        = input("Müşteri telefonunu başında '0' olmadan giriniz : ")
         musteri = Musteri(musteri_benzersiz_kod, musteri_tckn, musteri_adi, musteri_soyadi, musteri_adresi, musteri_telefonu)
 
         sonuc = musteri_yonetimi.musteri_ekle(musteri)
@@ -34,7 +34,7 @@ def __musteri_ekle(musteri:Musteri):
         musteri_adi         = input(f"Müşteri adını giriniz ({musteri.adi}): ")
         musteri_soyadi      = input(f"Müşteri soyadını giriniz ({musteri.soyadi}) : ")
         musteri_adresi      = input(f"Müşteri adresini giriniz ({musteri.adres}) : ")
-        musteri_telefonu    = input(f"Müşteri telefonunu giriniz ({musteri.tel}) : ")
+        musteri_telefonu    = input(f"Müşteri telefonunu başında '0' olmadan giriniz ({musteri.tel}) : ")
 
         if musteri_tckn == "":
             musteri_tckn = musteri.tckn

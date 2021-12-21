@@ -17,7 +17,7 @@ def __personel_ekle(personel:Personel):
         personel_adi             = input("Personel adını giriniz : ")
         personel_soyadi          = input("Personel soyadını giriniz : ")
         personel_adresi          = input("Personel adresini giriniz : ")
-        personel_telefonu        = input("Personel telefonunu giriniz : ")
+        personel_telefonu        = input("Personel telefonunu başında '0' olmadan giriniz : ")
         personel_gorevi          = input("Personel görevini giriniz : ")
         personel = Personel(personel_benzersiz_kod, personel_tckn, personel_adi, personel_soyadi, personel_adresi, personel_telefonu, personel_gorevi)
 
@@ -35,7 +35,7 @@ def __personel_ekle(personel:Personel):
         personel_adi         = input(f"Personel adını giriniz ({personel.adi}): ")
         personel_soyadi      = input(f"Personel soyadını giriniz ({personel.soyadi}) : ")
         personel_adresi      = input(f"Personel adresini giriniz ({personel.adres}) : ")
-        personel_telefonu    = input(f"Personel telefonunu giriniz ({personel.tel}) : ")
+        personel_telefonu    = input(f"Personel telefonunu başında '0' olmadan giriniz ({personel.tel}) : ")
         personel_gorevi      = input(f"Personel görevini giriniz ({personel.gorev}) : ")
 
         if personel_tckn == "":

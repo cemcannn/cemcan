@@ -19,14 +19,14 @@ def __fatura_ekle(fatura:Fatura):
         fatura_benzersiz_kod    = random.randint(1, 1000000)
         fatura_no               = input("Fatura no giriniz : ")
         print(avy.arac_listele())
-        fatura_arac                    = avy.arac_getir_benzersizkod(input("Araç benzersiz kod giriniz : "))
+        fatura_arac                    = avy.arac_getir_benzersizkod(int(input("Araç benzersiz kod giriniz : ")))
         print(mvy.musteri_listele())
-        fatura_musteri                 = mvy.musteri_getir_benzersizkod(input("Müşteri benzersiz kod giriniz : "))
+        fatura_musteri                 = mvy.musteri_getir_benzersizkod(int(input("Müşteri benzersiz kod giriniz : ")))
         print(pvy.personel_listele())
-        fatura_personel                = pvy.personel_getir_benzersizkod(input("Personel benzersiz kod giriniz : "))
-        fatura_tutari           = input("Araç benzersiz kod giriniz : ")
+        fatura_personel                = pvy.personel_getir_benzersizkod(int(input("Personel benzersiz kod giriniz : ")))
+        fatura_tutari           = input("Fatura tutarını giriniz : ")
         fatura_tarihi           = datetime.now()
-        fatura = fatura(fatura_benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
+        fatura = Fatura(fatura_benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, int(fatura_tutari), fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
@@ -40,13 +40,13 @@ def __fatura_ekle(fatura:Fatura):
         print("Daha önce girdiğiniz değeri kabul etmek için enter tuşuna basınız.")
         fatura_no           = input(f"Fatura no giriniz ({fatura.no}) : ")
         print(avy.arac_listele())
-        fatura_arac                = input("Araç benzersiz kod giriniz ({fatura.arac}): ")
+        fatura_arac                    = avy.arac_getir_benzersizkod(int(input("Araç benzersiz kod giriniz ({fatura.arac}): ")))
         print(mvy.musteri_listele())
-        fatura_musteri             = input("Müşteri benzersiz kod giriniz ({fatura.musteri}): ")
+        fatura_musteri                 = mvy.musteri_getir_benzersizkod(int(input("Müşteri benzersiz kod giriniz ({fatura.musteri}): ")))
         print(pvy.personel_listele())
-        fatura_personel            = pvy.personel_getir_tckn(input("Personel benzersiz kod giriniz ({fatura.personel}): "))
+        fatura_personel                = pvy.personel_getir_benzersizkod(int(input("Personel benzersiz kod giriniz ({fatura.personel}): ")))
         fatura_tutari       = input(f"Fatura adresini giriniz ({fatura.tutar}) : ")
-        fatura_tarihi       = input(f"Fatura telefonunu giriniz ({fatura.tarih}) : ")
+        fatura_tarihi       = datetime.now()
 
         if fatura_no == "":
             fatura_no = fatura.no
@@ -55,10 +55,10 @@ def __fatura_ekle(fatura:Fatura):
             fatura_arac = fatura.arac
 
         if fatura_musteri == "":
-            musteri = fatura.musteri
+            fatura_musteri = fatura.musteri
             
         if fatura_personel == "":
-            personel = fatura.personel
+            fatura_personel = fatura.personel
         
         if fatura_tutari == "":
             fatura_tutari = fatura.tutar
@@ -66,7 +66,7 @@ def __fatura_ekle(fatura:Fatura):
         if fatura_tarihi == "":
             fatura_tarihi = fatura.tarih
 
-        fatura = fatura(fatura.benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
+        fatura = Fatura(fatura.benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, int(fatura_tutari), fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 

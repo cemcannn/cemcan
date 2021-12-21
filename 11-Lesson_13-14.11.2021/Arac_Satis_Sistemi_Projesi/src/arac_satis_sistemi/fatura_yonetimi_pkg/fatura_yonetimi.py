@@ -3,17 +3,17 @@ from . import fatura_veri_yonetimi
 import re
 
 def __fatura_dogrula(fatura: Fatura) -> (bool,str):
-    pattern     = "[A-Z]{3}[2021][0-9]{10}"
+    pattern     = "[A-Z]{3}[2021][0-9]{6}"
     sonuc       = re.search(pattern, fatura.no)
     # pattern2    = "[0]{1}[1-9]{1}[0-9]{9}"
     # sonuc2      = re.search(pattern2, fatura.tel)
     if sonuc == None:
-        return (False, "Fatura numarası uyumsuzdur!")
+        return (False, "Fatura numarası AAA2021000001 patternine uymalıdır!")
     
     if fatura_veri_yonetimi.fatura_getir_faturano(fatura.no) != None:
-        return (False, "{fatura.tckn} Fatura numarası daha önce sisteme kaydedilmiş!")
+        return (False, "{fatura.no} Fatura numarası daha önce sisteme kaydedilmiş!")
 
-    if fatura.tutar.isnumeric() != True:
+    if type(fatura.tutar) != int:
         return (False, "Fatura tutarı rakamlardan oluşmalıdır!")
 
     return (True, "Fatura doğrulandı")

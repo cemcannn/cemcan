@@ -1,5 +1,5 @@
 from .personel import Personel
-__personel_listesi=dict()
+__personel_listesi={4564:[36271333288,"CEM","CAN","AHİ MESUT",5557863545,"SATICI"]}
 
 def personel_ekle(personel:Personel):
     __personel_listesi[personel.benzersiz_kod]=[personel.tckn,personel.adi,personel.soyadi,personel.adres,personel.tel,personel.gorev]

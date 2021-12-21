@@ -5,7 +5,7 @@ import re
 def __personel_dogrula(personel: Personel) -> (bool,str):
     pattern     = "[1-9]{1}[0-9]{10}"
     sonuc       = re.search(pattern, personel.tckn)
-    pattern2    = "[0]{1}[1-9]{1}[0-9]{9}"
+    pattern2    = "[1-9]{1}[0-9]{9}"
     sonuc2      = re.search(pattern2, personel.tel)
     if sonuc == None:
         return (False, "TCKN 11 Haneli olmalıdır!")

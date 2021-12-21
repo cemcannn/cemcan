@@ -1,5 +1,5 @@
 from .musteri import Musteri
-__musteri_listesi=dict()
+__musteri_listesi={4565:[32271333288,"CEM","CAN","AHİ MESUT",5557863544]}
 
 def musteri_ekle(musteri:Musteri):
     __musteri_listesi[musteri.benzersiz_kod]=[musteri.tckn,musteri.adi,musteri.soyadi,musteri.adres,musteri.tel]

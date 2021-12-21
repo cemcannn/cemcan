@@ -3,7 +3,7 @@ from musteri_yonetimi_pkg import musteri
 from personel_yonetimi_pkg import personel
 
 class Fatura:
-    def __init__(self,benzersiz_kod: int, no:int, arac: arac.Arac, musteri: musteri.Musteri, personel: personel.Personel, tutar:int, tarih:int):
+    def __init__(self,benzersiz_kod: int, no:complex, arac: arac.Arac, musteri: musteri.Musteri, personel: personel.Personel, tutar:int, tarih:int):
         self.benzersiz_kod  = benzersiz_kod
         self.no             = no    
         self.arac           = arac
