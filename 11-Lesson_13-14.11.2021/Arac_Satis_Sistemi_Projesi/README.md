@@ -1,6 +1,6 @@
-Araç Yönetim Sistemi Projesi
+Araç Yönetim Sistemi Project
 ----------------------------
 
-Bu proje falan flan kapsamında yapılmaktadır.
+This project is created within the scope of the Bilge Adam academy.
 
 

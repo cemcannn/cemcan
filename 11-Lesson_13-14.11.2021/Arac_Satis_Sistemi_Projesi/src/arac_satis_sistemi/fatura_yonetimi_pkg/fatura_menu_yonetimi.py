@@ -24,9 +24,9 @@ def __fatura_ekle(fatura:Fatura):
         fatura_musteri                 = mvy.musteri_getir_benzersizkod(int(input("Müşteri benzersiz kod giriniz : ")))
         print(pvy.personel_listele())
         fatura_personel                = pvy.personel_getir_benzersizkod(int(input("Personel benzersiz kod giriniz : ")))
-        fatura_tutari           = input("Fatura tutarını giriniz : ")
+        fatura_tutari           = fatura_yonetimi.__vergi_hesapla(fatura_arac)
         fatura_tarihi           = datetime.now()
-        fatura = Fatura(fatura_benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, int(fatura_tutari), fatura_tarihi)
+        fatura = Fatura(fatura_benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
@@ -35,6 +35,7 @@ def __fatura_ekle(fatura:Fatura):
             __fatura_ekle(fatura)
         else:
             print("Fatura başarıyla kaydedildi.") 
+            print(fatura.arac[4])
     
     else:
         print("Daha önce girdiğiniz değeri kabul etmek için enter tuşuna basınız.")
@@ -45,7 +46,7 @@ def __fatura_ekle(fatura:Fatura):
         fatura_musteri                 = mvy.musteri_getir_benzersizkod(int(input("Müşteri benzersiz kod giriniz ({fatura.musteri}): ")))
         print(pvy.personel_listele())
         fatura_personel                = pvy.personel_getir_benzersizkod(int(input("Personel benzersiz kod giriniz ({fatura.personel}): ")))
-        fatura_tutari       = input(f"Fatura adresini giriniz ({fatura.tutar}) : ")
+        fatura_tutari       = fatura_yonetimi.__vergi_hesapla()
         fatura_tarihi       = datetime.now()
 
         if fatura_no == "":

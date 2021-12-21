@@ -1,11 +1,16 @@
+version 0.4
+-----------------
+fatura yonetimi is added
+some bug fixes
+
 version 0.3
 -----------------
-personel yonetimi eklendi
+personel yonetimi is added
 
 version 0.2
 -----------------
-müşteri yonetimi eklendi
+müşteri yonetimi is added
 
 version 0.1
 -----------------
-arac yonetim sistemi geliştiridi
+arac yonetim sistemi is created
