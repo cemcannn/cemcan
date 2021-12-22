@@ -75,12 +75,10 @@ def menu_getir():
         if secenek == 1: # 1. Seçenek Araç Ekleme seçilirse:
             print("araç ekleme çalışıyor")
             __arac_ekle(None) # __arac_ekle fonksiyonuna None tanımlıyoruz.
-
         elif secenek == 2: # 2. Seçenek Araç Listeleme seçilirse:
             arac_listesi = arac_yonetimi.arac_listele() # Arac yönetimi modülü altında araç listele fonksiyonunu, araç listesi değişkenine eşitliyoruz.
             for arac in arac_listesi.items(): 
                 print(arac)
-            print(arac_listesi.items())
         elif secenek == 3:
             arac_listesi = arac_yonetimi.arac_listele()
         elif secenek == 4:

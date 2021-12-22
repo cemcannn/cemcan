@@ -12,7 +12,7 @@ def personel_getir_benzersizkod(benzersiz_kod:int) -> Personel:
 
 def personel_getir_tckn(tckn:int):
     for personel in __personel_listesi.items():
-        if personel.tckn == tckn:
+        if personel[0] == tckn:
             return personel
     return None
 

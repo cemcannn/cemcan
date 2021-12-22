@@ -12,22 +12,22 @@ import re
 
 def __vergi_hesapla(fatura_arac: int) -> (int):
     if fatura_arac[5] <= 1599 and fatura_arac[3] <= 91000:
-        fatura_tutar = fatura_arac[3] * 0,45 * 0,18  
+        fatura_tutar = fatura_arac[3] * 145 / 100 * 118 / 100  
         return fatura_tutar
     elif fatura_arac[5] <= 1599 and fatura_arac[3] >= 92000 and fatura_arac[3] <= 149000:
-        fatura_tutar = fatura_arac[3] * 0,50 * 0,18  
+        fatura_tutar = fatura_arac[3] * 150 / 100 * 118 / 100  
         return fatura_tutar
     elif fatura_arac[5] <= 1599 and fatura_arac[3] >= 150000:
-        fatura_tutar = fatura_arac[3] * 0,80 * 0,18  
+        fatura_tutar = fatura_arac[3] * 180 / 100 * 118 / 100  
         return fatura_tutar      
     elif fatura_arac[5] >= 1600 and fatura_arac[5] <= 1999 and fatura_arac[3] <= 169000:
-        fatura_tutar = fatura_arac[3] * 1,30 * 0,18  
+        fatura_tutar = fatura_arac[3] * 230 / 100 * 118 / 100  
         return fatura_tutar
     elif fatura_arac[5] >= 1600 and fatura_arac[5] <= 1999 and fatura_arac[3] >= 170000:
-        fatura_tutar = fatura_arac[3] * 1,50 * 0,18  
+        fatura_tutar = fatura_arac[3] * 250 / 100 * 118 / 100
         return fatura_tutar
     elif fatura_arac[5] >= 2000:
-        fatura_tutar = fatura_arac[3] * 2,20 * 0,18  
+        fatura_tutar = fatura_arac[3] * 320 / 100 * 118 / 100  
         return fatura_tutar
 
 def __fatura_dogrula(fatura: Fatura) -> (bool,str):

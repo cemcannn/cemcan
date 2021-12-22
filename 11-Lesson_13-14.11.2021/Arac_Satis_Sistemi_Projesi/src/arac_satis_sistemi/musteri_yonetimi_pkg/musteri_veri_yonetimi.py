@@ -12,7 +12,7 @@ def musteri_getir_benzersizkod(benzersiz_kod:int) -> Musteri:
 
 def musteri_getir_tckn(tckn:int):
     for musteri in __musteri_listesi.items():
-        if musteri.tckn == tckn:
+        if musteri[0] == tckn:
             return musteri
     return None
 

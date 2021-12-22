@@ -12,7 +12,7 @@ def fatura_getir_benzersizkod(benzersiz_kod:int) -> Fatura:
 
 def fatura_getir_faturano(no:complex):
     for fatura in __fatura_listesi.items():
-        if fatura.no == no:
+        if fatura[0] == no:
             return fatura
     return None
 

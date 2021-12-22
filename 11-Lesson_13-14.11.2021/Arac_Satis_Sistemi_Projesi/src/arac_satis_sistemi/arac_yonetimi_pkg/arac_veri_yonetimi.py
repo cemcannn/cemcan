@@ -1,5 +1,5 @@
 from .arac import Arac # arac modülünden Arac class ını import ediyoruz.
-__arac_listesi={4563:["A123-4567","TOYOTA","COROLLA",390000,"ŞAMPANYA",1600]} # __arac_listesi değişkenine bir sözlük atayıp gizliyoruz.
+__arac_listesi={4563:["A123-4567","TOYOTA","COROLLA",80000,"ŞAMPANYA",1600]} # __arac_listesi değişkenine bir sözlük atayıp gizliyoruz.
 
 def arac_ekle(arac:Arac): # Arac ekle fonksiyonu keyword arguments olarak arac parametresi Araç classı olarak tanımlanıyor.
     __arac_listesi[arac.benzersiz_kod]=[arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir] # arac listesinin arac benzersiz kod indeksi arac parametresine eşitleniyor yani key olarak arac benzersiz kod value değerleri ise arac class ının geri kalan parametreleri oluyor.
@@ -12,7 +12,7 @@ def arac_getir_benzersizkod(benzersiz_kod:int) -> Arac: # Araç getir fonksiyonu
 
 def arac_getir_serino(serino:str) -> Arac: # Araç getir fonksiyonunu seri numaradan getiriyor.
     for arac in __arac_listesi.items():
-        if arac.serino == serino:
+        if arac[0] == serino:
             return arac
     return None
 
