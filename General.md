@@ -1,8 +1,8 @@
 # SOFTWARE
 ## PTYHON TERMINOLJISI
 - Best Practice - en iyi yol
-- Escape Sequence - kaçış dizileri
-- intellisense = visual stuido code da tamamlama için kullanılan terim
+- Escape Sequence - kaçış dizileri; ```python "\n"  ``` bir kaçış dizisidir. 
+- intellisense = visual stuido code da tamamlama için kullanılan terim.
 - validation = doğrulama
 - nested = iç içe geçmiş. python da birden fazla fonksiyon yazarken iç içe geçmesi durumunda kullanılır.
 - bug = test ya da son kullanıcının bulduğu hatalar.
