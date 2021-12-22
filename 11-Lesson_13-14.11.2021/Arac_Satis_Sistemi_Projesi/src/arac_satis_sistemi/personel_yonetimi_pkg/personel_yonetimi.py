@@ -8,24 +8,24 @@ def __personel_dogrula(personel: Personel) -> (bool,str):
     pattern2    = "[1-9]{1}[0-9]{9}"
     sonuc2      = re.search(pattern2, personel.tel)
     if sonuc == None:
-        return (False, "TCKN 11 Haneli olmalıdır!")
+        return (False, "TCKN 11 Haneli Olmalıdır!")
 
     if sonuc == "[0]{1}[0-9]{10}":
-        return (False, "TCKN '0' ile başlayamaz!")
+        return (False, "TCKN '0' ile Başlayamaz!")
     
     if personel_veri_yonetimi.personel_getir_tckn(personel.tckn) != None:
-        return (False, "{personel.tckn} TCKN'ye müşteri daha önce sisteme kaydedilmiş!")
+        return (False, "{personel.tckn} İlgili Personel TCKN Daha Önce Sisteme Kaydedilmiş!")
     
     if personel.tckn.isnumeric() != True:
-        return (False, "TCKN rakamlardan oluşmalıdır!")
+        return (False, "TCKN Rakamlardan Oluşmalıdır!")
     
     if sonuc2 == None:
-        return (False, "Lütfen telefon numarasını doğru giriniz!")
+        return (False, "Lütfen Telefon Numarasını Doğru Giriniz!")
 
     if personel.tel.isnumeric() != True:
-        return (False, "Telefon numarası rakamlardan oluşmalıdır!")
+        return (False, "Telefon Numarası Rakamlardan Oluşmalıdır!")
 
-    return (True, "Personel doğrulandı")
+    return (True, "Personel Doğrulandı")
 
 def personel_ekle(personel:Personel) -> (bool,str):
     try:
@@ -36,9 +36,9 @@ def personel_ekle(personel:Personel) -> (bool,str):
         
         personel_veri_yonetimi.personel_ekle(personel)
 
-        return (True, "Kayıt başarıyla yapılmıştır.")
+        return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
-        return (False, "Hata meydana geldi : " + ex.__str__())        
+        return (False, "Hata Meydana Geldi : " + ex.__str__())        
 
 def personel_listele() -> {Personel}:
     return personel_veri_yonetimi.personel_listele()
@@ -58,9 +58,9 @@ def personel_duzenle(personel:Personel) -> (bool,str):
 
         personel_veri_yonetimi.personel_duzenle(personel)[personel.benzersiz_kod]=personel
 
-        return (True, "Kayıt başarıyla yapılmıştır.")
+        return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
-        return (False, "Hata meydana geldi : " + ex.__str__())
+        return (False, "Hata Meydana Geldi : " + ex.__str__())
     
 def arac_getir(benzersiz_kod: int) -> Personel:
     try:
