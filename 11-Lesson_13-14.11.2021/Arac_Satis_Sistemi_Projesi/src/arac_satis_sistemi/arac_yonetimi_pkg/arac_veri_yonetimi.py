@@ -1,4 +1,5 @@
 from .arac import Arac # arac modülünden Arac class ını import ediyoruz.
+
 __arac_listesi={4563:["A123-4567","TOYOTA","COROLLA",80000,"ŞAMPANYA",1600]} # __arac_listesi değişkenine bir sözlük atayıp gizliyoruz.
 
 def arac_ekle(arac:Arac): # Arac ekle fonksiyonu keyword arguments olarak arac parametresi Araç classı olarak tanımlanıyor.
