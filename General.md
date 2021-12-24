@@ -87,6 +87,14 @@
 - [UIPath](https://www.uipath.com/) <!-- Her şeyin otomasyonunu yapar.-->
 - [Scrapy](https://scrapy.org/) <!--Scrap için yararlı bir program-->
 - [Hacker Rank](https://www.hackerrank.com/) <!-- Code exercise-->
+- https://stackoverflow.com/
+- https://www.codility.com/
+- https://www.codewars.com/
+- https://leetcode.com/
+- https://edabit.com/
+- https://replit.com/
+- https://codepen.io/
+- https://exercism.org/
 
 ---
 
@@ -105,6 +113,20 @@
 
 - [Python - Sqlite3 Kullanımı](https://docs.python.org/3/library/sqlite3.html) <!-- Python SQLite3 kullanımı -->
 - [DB Engines Ranking](https://db-engines.com/en/ranking) <!-- Database management system ranking-->
+
+---
+
+## GOOGLE EFEKTİF KULLANMA KAYNAKLARI
+- https://tr.wikipedia.org/wiki/Google
+- https://en.wikipedia.org/wiki/Google
+- https://www.crmmedya.com/google-nedir/
+- https://www.vargonen.com/blog/arama-motoru-nedir/
+- https://about.google/intl/ALL_tr/products/
+- https://www.tamindir.com/blog/googlei-daha-etkili-kullanmak-icin-ipuclari_15804/
+- https://www.webtekno.com/google-arama-yontemleri-h95625.html
+- https://app.patika.dev/moduller/herkes-icin-temel-dersler/google
+
+---
 
 ## YOUTUBE
 - UĞUR UMUTOĞLU KANALINI TAKİP YAZILIMCILIK İLE ALAKALI
