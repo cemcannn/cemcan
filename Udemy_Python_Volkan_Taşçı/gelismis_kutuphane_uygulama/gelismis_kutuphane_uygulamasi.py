@@ -1,6 +1,6 @@
 import sqlite3
 
-db = sqlite3.connect("kitapler.sqlite")
+db = sqlite3.connect("kitaplar.sqlite")
 imlec = db.cursor()
 
 menu = """
@@ -21,7 +21,7 @@ if islem == "1":
         print(i)
 
 elif islem == "2":
-    ismi = input("Yazar ismi giriniz  : ")
+    isim = input("Yazar ismi giriniz  : ")
     sorgu = "SELECT * FROM 'kitaplar' WHERE yazar = '{}'".format(isim)
     imlec.execute(sorgu)
     veriler = imlec.fetchall()
@@ -30,3 +30,5 @@ elif islem == "2":
 
 else:
     print("Lütfen doğru seçeneği seçiniz!")
+    
+db.close()
