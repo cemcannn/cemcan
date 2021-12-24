@@ -5,8 +5,8 @@ def arac_ekle(arac:Arac): # Arac ekle fonksiyonu keyword arguments olarak arac p
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()
     imlec.execute("""CREATE TABLE IF NOT EXISTS 'araclar' 
-                (Benzersiz_kod INTEGER NOT NULL PRIMARY KEY, 
-                Seri_no INTEGER NOT NULL, 
+                (Benzersiz_kod INTEGER NOT NULL UNIQUE, 
+                Seri_no NOT NULL, 
                 Marka STRING NOT NULL, 
                 Model STRING NOT NULL, 
                 Fiyat INTEGER NOT NULL, 
@@ -24,7 +24,7 @@ def arac_sil(benzersiz_kod:int):
     al.commit()
     al.close()
 
-def arac_getir_benzersizkod(benzersiz_kod:int) -> Arac: # Araç getir fonksiyonunu benzersiz koddan çağırıyor.
+def arac_getir_benzersizkod(benzersiz_kod:int): # Araç getir fonksiyonunu benzersiz koddan çağırıyor.
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()
     imlec.execute("SELECT * FROM 'araclar' WHERE 'Benzersiz_kod' = '{}'".format(benzersiz_kod))
@@ -33,18 +33,15 @@ def arac_getir_benzersizkod(benzersiz_kod:int) -> Arac: # Araç getir fonksiyonu
     print(arac)
 
 def arac_getir_serino(serino:str) -> Arac: # Araç getir fonksiyonunu seri numaradan getiriyor.
-    if :
-        al = sqlite3.connect("araclar.sqlite")
-        imlec = al.cursor()
-        imlec.execute("SELECT * FROM 'araclar' WHERE 'Seri_no' = '{}'".format(serino))
-        arac = imlec.fetchall()
-        al.close()        
-        if serino != None:
-            return arac
-        return None
-    except:
-        return None
-                    
+    al = sqlite3.connect("araclar.sqlite")
+    imlec = al.cursor()
+    imlec.execute("SELECT * FROM 'araclar' WHERE 'Seri_no' = '{}'".format(serino))
+    arac = imlec.fetchone()
+    al.close()        
+    if serino != None:
+        return arac
+    return None
+              
 def arac_listele() -> list():
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()

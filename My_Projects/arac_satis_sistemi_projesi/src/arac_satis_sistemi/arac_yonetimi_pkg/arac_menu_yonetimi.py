@@ -127,7 +127,6 @@ def menu_getir():
             arac_listesi = arac_yonetimi.arac_listele() # Arac yönetimi modülü altında araç listele fonksiyonunu, araç listesi değişkenine eşitliyoruz.
             for arac in arac_listesi: 
                 print(arac)
-                print(type(arac[0]))
             print(input("Devam Etmek için Bir Tuşa Basınız..."))
         elif secenek == 3:
             os.system("cls")
