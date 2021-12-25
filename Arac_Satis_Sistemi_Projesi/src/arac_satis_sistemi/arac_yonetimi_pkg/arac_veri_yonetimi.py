@@ -1,11 +1,12 @@
 from .arac import Arac 
 import sqlite3
 
+
 def arac_ekle(arac:Arac): 
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()
     imlec.execute("""CREATE TABLE IF NOT EXISTS 'araclar' 
-                (Benzersiz_kod INTEGER NOT NULL UNIQUE, 
+                (Benzersiz_kod INTEGER NOT NULL, 
                 Seri_no NOT NULL, 
                 Marka STRING NOT NULL, 
                 Model STRING NOT NULL, 
@@ -53,6 +54,6 @@ def arac_listele() -> list():
 def arac_duzenle(arac:Arac):
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()
-    imlec.execute("UPDATE 'araclar' set ({},{},{},{},{},{},{}) WHERE Seri_no = '{}'".format(arac.benzersiz_kod,arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir,arac.benzersiz_kod))
+    imlec.execute("UPDATE 'araclar' set ({},{},{},{},{},{},{}) WHERE Benzersiz_kod = '{}'".format(arac.benzersiz_kod,arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir,arac.benzersiz_kod))
     al.commit()
     al.close()

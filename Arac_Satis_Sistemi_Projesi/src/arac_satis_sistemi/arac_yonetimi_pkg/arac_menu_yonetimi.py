@@ -146,9 +146,6 @@ def menu_getir():
             __arac_duzenle(input("Lütfen Düzenlemek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")) 
             arac_yonetimi.arac_duzenle(int(input("Lütfen Düzenlemek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")))
         elif secenek == 5:
-            arac_listesi = arac_yonetimi.arac_listele()
-            for arac in arac_listesi: 
-                print(arac)
-            arac_yonetimi.arac_getir(input("sds"))
+            menu_yonetimi.ana_menu_getir()
         else:
             print("Lütfen Doğru Seçeneği Seçiniz!")
