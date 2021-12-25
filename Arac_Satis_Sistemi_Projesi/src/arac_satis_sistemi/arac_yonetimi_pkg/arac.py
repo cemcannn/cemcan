@@ -5,9 +5,9 @@ class Arac: # Araç kodu
         self.marka          = marka
         self.model          = model
         self.fiyat          = fiyat
-        self.renk           = renk
+        self.renk           = renk #must be integer
         self.silindir       = silindir
 
     def __str__(self): # Bu ne işe yarıyor.##############################################
-        return f"ID = {self.benzersiz_kod}, serino = {self.serino}, marka = {self.marka}, model = {self.model}, silindir = {self.silindir}"
+        return f"Araç ID = {self.benzersiz_kod}, Araç Seri Numarası = {self.serino}, Araç Markası = {self.marka}, Araç Modeli = {self.model}, Araç Fiyatı = {self.fiyat}, Araç Silindir Sayısı = {self.silindir}"
 

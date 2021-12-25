@@ -8,24 +8,24 @@ def __musteri_dogrula(musteri: Musteri) -> (bool,str):
     pattern2    = "[1-9]{1}[0-9]{9}"
     sonuc2      = re.search(pattern2, musteri.tel)
     if sonuc == None:
-        return (False, "TCKN 11 Haneli olmalıdır!")
+        return (False, "TCKN 11 Haneli Olmalıdır!")
 
     if sonuc == "[0]{1}[0-9]{10}":
-        return (False, "TCKN '0' ile başlayamaz!")
+        return (False, "TCKN '0' ile Başlayamaz!")
     
     if musteri_veri_yonetimi.musteri_getir_tckn(musteri.tckn) != None:
-        return (False, "{musteri.tckn} TCKN'ye müşteri daha önce sisteme kaydedilmiş!")
+        return (False, "{musteri.tckn} İlgili Müşteri TCKN Daha Önce Sisteme Kaydedilmiş!")
     
     if musteri.tckn.isnumeric() != True:
-        return (False, "TCKN rakamlardan oluşmalıdır!")
+        return (False, "TCKN Rakamlardan Oluşmalıdır!")
     
     if sonuc2 == None:
-        return (False, "Lütfen telefon numarasını doğru giriniz!")
+        return (False, "Lütfen Telefon Numarasını Doğru Giriniz!")
 
     if musteri.tel.isnumeric() != True:
-        return (False, "Telefon numarası rakamlardan oluşmalıdır!")
+        return (False, "Telefon Numarası Rakamlardan Oluşmalıdır!")
 
-    return (True, "Müşteri doğrulandı")
+    return (True, "Müşteri Doğrulandı")
 
 def musteri_ekle(musteri:Musteri) -> (bool,str):
     try:
@@ -36,9 +36,9 @@ def musteri_ekle(musteri:Musteri) -> (bool,str):
         
         musteri_veri_yonetimi.musteri_ekle(musteri)
 
-        return (True, "Kayıt başarıyla yapılmıştır.")
+        return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
-        return (False, "Hata meydana geldi : " + ex.__str__())        
+        return (False, "Hata Meydana Geldi : " + ex.__str__())        
 
 def musteri_listele() -> {Musteri}:
     return musteri_veri_yonetimi.musteri_listele()
@@ -58,9 +58,9 @@ def musteri_duzenle(musteri:Musteri) -> (bool,str):
 
         musteri_veri_yonetimi.musteri_duzenle(musteri)[musteri.benzersiz_kod]=musteri
 
-        return (True, "Kayıt başarıyla yapılmıştır.")
+        return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
-        return (False, "Hata meydana geldi : " + ex.__str__())
+        return (False, "Hata Meydana Geldi : " + ex.__str__())
     
 def arac_getir(benzersiz_kod: int) -> Musteri:
     try:

@@ -36,15 +36,15 @@ def __fatura_dogrula(fatura: Fatura) -> (bool,str):
     # pattern2    = "[0]{1}[1-9]{1}[0-9]{9}"
     # sonuc2      = re.search(pattern2, fatura.tel)
     if sonuc == None:
-        return (False, "Fatura numarası AAA2021000001 patternine uymalıdır!")
+        return (False, "Fatura Numarası AAA2021000000 Patternine Uymalıdır!")
     
     if fatura_veri_yonetimi.fatura_getir_faturano(fatura.no) != None:
-        return (False, "{fatura.no} Fatura numarası daha önce sisteme kaydedilmiş!")
+        return (False, "{fatura.no} Fatura Numarası Daha Önce Sisteme Kaydedilmiş!")
 
     # if type(fatura.tutar) != int:
     #     return (False, "Fatura tutarı rakamlardan oluşmalıdır!")
 
-    return (True, "Fatura doğrulandı")
+    return (True, "Fatura Doğrulandı")
 
 def fatura_ekle(fatura:Fatura) -> (bool,str):
     try:
@@ -55,9 +55,9 @@ def fatura_ekle(fatura:Fatura) -> (bool,str):
         
         fatura_veri_yonetimi.fatura_ekle(fatura)
 
-        return (True, "Kayıt başarıyla yapılmıştır.")
+        return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
-        return (False, "Hata meydana geldi : " + ex.__str__())        
+        return (False, "Hata Meydana Geldi : " + ex.__str__())        
 
 def fatura_listele() -> {Fatura}:
     return fatura_veri_yonetimi.fatura_listele()
@@ -77,9 +77,9 @@ def fatura_duzenle(fatura:Fatura) -> (bool,str):
 
         fatura_veri_yonetimi.fatura_duzenle(fatura)[fatura.benzersiz_kod]=fatura
 
-        return (True, "Kayıt başarıyla yapılmıştır.")
+        return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
-        return (False, "Hata meydana geldi : " + ex.__str__())
+        return (False, "Hata Meydana Geldi : " + ex.__str__())
     
 def arac_getir(benzersiz_kod: int) -> Fatura:
     try:

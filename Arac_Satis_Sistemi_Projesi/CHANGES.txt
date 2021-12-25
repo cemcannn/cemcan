@@ -1,3 +1,7 @@
+version 0.5
+-----------------
+sql database is attached to arac ekleme module
+
 version 0.4
 -----------------
 fatura yonetimi is added

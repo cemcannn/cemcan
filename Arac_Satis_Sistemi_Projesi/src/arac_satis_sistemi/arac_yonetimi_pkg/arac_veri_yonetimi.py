@@ -1,23 +1,58 @@
 from .arac import Arac # arac modülünden Arac class ını import ediyoruz.
-__arac_listesi={4563:["A123-4567","TOYOTA","COROLLA",80000,"ŞAMPANYA",1600]} # __arac_listesi değişkenine bir sözlük atayıp gizliyoruz.
+import sqlite3
 
 def arac_ekle(arac:Arac): # Arac ekle fonksiyonu keyword arguments olarak arac parametresi Araç classı olarak tanımlanıyor.
-    __arac_listesi[arac.benzersiz_kod]=[arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir] # arac listesinin arac benzersiz kod indeksi arac parametresine eşitleniyor yani key olarak arac benzersiz kod value değerleri ise arac class ının geri kalan parametreleri oluyor.
+    al = sqlite3.connect("araclar.sqlite")
+    imlec = al.cursor()
+    imlec.execute("""CREATE TABLE IF NOT EXISTS 'araclar' 
+                (Benzersiz_kod INTEGER NOT NULL UNIQUE, 
+                Seri_no NOT NULL, 
+                Marka STRING NOT NULL, 
+                Model STRING NOT NULL, 
+                Fiyat INTEGER NOT NULL, 
+                Renk STRING NOT NULL, 
+                Silindir INTEGER NOT NULL)""")
+
+    imlec.execute("INSERT INTO 'araclar' VALUES (?,?,?,?,?,?,?)",(arac.benzersiz_kod,arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir))
+    al.commit()
+    al.close()
 
 def arac_sil(benzersiz_kod:int):
-    __arac_listesi.pop(benzersiz_kod) # araç listesinden pop fonksiyonu ile benzersiz kod key ini girince ilgili araç class ını siliyor.
+    al = sqlite3.connect("araclar.sqlite")
+    imlec = al.cursor()
+    imlec.execute("DELETE FROM 'araclar' WHERE 'Benzersiz_kod' = '{}'".format(benzersiz_kod))
+    al.commit()
+    al.close()
 
-def arac_getir_benzersizkod(benzersiz_kod:int) -> Arac: # Araç getir fonksiyonunu benzersiz koddan çağırıyor.
-    return __arac_listesi[benzersiz_kod] # 
+def arac_getir_benzersizkod(benzersiz_kod:int): # Araç getir fonksiyonunu benzersiz koddan çağırıyor.
+    al = sqlite3.connect("araclar.sqlite")
+    imlec = al.cursor()
+    imlec.execute("SELECT * FROM 'araclar' WHERE 'Benzersiz_kod' = '{}'".format(benzersiz_kod))
+    arac = imlec.fetchone()
+    al.close()                             
+    print(arac)
 
 def arac_getir_serino(serino:str) -> Arac: # Araç getir fonksiyonunu seri numaradan getiriyor.
-    for arac in __arac_listesi.items():
-        if arac[0] == serino:
-            return arac
+    al = sqlite3.connect("araclar.sqlite")
+    imlec = al.cursor()
+    imlec.execute("SELECT * FROM 'araclar' WHERE 'Seri_no' = '{}'".format(serino))
+    arac = imlec.fetchone()
+    al.close()        
+    if serino != None:
+        return arac
     return None
-
-def arac_listele() -> {Arac}: #Burası neden süslü parantez#################################### 
-    return __arac_listesi
+              
+def arac_listele() -> list():
+    al = sqlite3.connect("araclar.sqlite")
+    imlec = al.cursor()
+    sorgu = "SELECT * FROM araclar"
+    imlec.execute(sorgu)
+    arac_listesi = imlec.fetchall()
+    return arac_listesi
 
 def arac_duzenle(arac:Arac):
-    __arac_listesi[arac.benzersiz_kod]=arac
+    al = sqlite3.connect("araclar.sqlite")
+    imlec = al.cursor()
+    imlec.execute("UPDATE 'araclar' set ({},{},{},{},{},{},{}) WHERE Seri_no = '{}'".format(arac.benzersiz_kod,arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir,arac.benzersiz_kod))
+    al.commit()
+    al.close()
