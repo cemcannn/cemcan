@@ -1,6 +1,6 @@
 version 0.5
 -----------------
-sql database is attached to arac ekleme module
+sql database has been tested on arac_yonetim_sistemi
 
 version 0.4
 -----------------
