@@ -1,11 +1,11 @@
-from .arac import Arac # arac modülünden Arac class ını çekiyoruz.
-import re # Regular expression modülünü import ediyoruz.
-from . import arac_veri_yonetimi # araç veri yönetimi modülünü import ediyoruz.
+from .arac import Arac 
+import re 
+from . import arac_veri_yonetimi 
 
 
-def __arac_dogrula(arac:Arac) -> (bool,str): # __arac_dogrula fonksiynunu gizleyip keyword olarak araç parametresini araç class ına eşitliyoruz.
+def __arac_dogrula(arac:Arac) -> (bool,str): 
 
-    pattern = "A[0-9]{3}-[0-9]{4}" # pattern değişkeni oluşturup 
+    pattern = "A[0-9]{3}-[0-9]{4}" 
     sonuc = re.search(pattern, arac.serino) 
     if sonuc == None:
         return (False, "Seri Numarası A000-0000 Patternine Uymalıdır!")

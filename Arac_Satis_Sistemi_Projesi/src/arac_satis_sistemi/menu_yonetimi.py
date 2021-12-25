@@ -1,4 +1,4 @@
-from arac_yonetimi_pkg import arac_menu_yonetimi #araç yönetimi paket dosyasından araç menu yönetimi  dosyası çekiliyor
+from arac_yonetimi_pkg import arac_menu_yonetimi 
 from musteri_yonetimi_pkg import musteri_menu_yonetimi 
 from personel_yonetimi_pkg import personel_menu_yonetimi 
 from fatura_yonetimi_pkg import fatura_menu_yonetimi 

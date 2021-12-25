@@ -1,6 +1,6 @@
-import menu_yonetimi # Ana dosya menu yönetimi dosyasını çekiyor
+import menu_yonetimi 
 
-if __name__ == "__main__": # Eğer ana dosya ise çalışıyor, modül ise çalışmıyor.
+if __name__ == "__main__": 
     menu_yonetimi.ana_menu_getir()
 else:
     print("Bu Uygulama Module Olarak Kullanılamaz.")

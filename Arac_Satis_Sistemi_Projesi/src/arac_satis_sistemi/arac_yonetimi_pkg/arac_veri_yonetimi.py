@@ -1,7 +1,7 @@
-from .arac import Arac # arac modülünden Arac class ını import ediyoruz.
+from .arac import Arac 
 import sqlite3
 
-def arac_ekle(arac:Arac): # Arac ekle fonksiyonu keyword arguments olarak arac parametresi Araç classı olarak tanımlanıyor.
+def arac_ekle(arac:Arac): 
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()
     imlec.execute("""CREATE TABLE IF NOT EXISTS 'araclar' 
@@ -24,7 +24,7 @@ def arac_sil(benzersiz_kod:int):
     al.commit()
     al.close()
 
-def arac_getir_benzersizkod(benzersiz_kod:int): # Araç getir fonksiyonunu benzersiz koddan çağırıyor.
+def arac_getir_benzersizkod(benzersiz_kod:int):
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()
     imlec.execute("SELECT * FROM 'araclar' WHERE 'Benzersiz_kod' = '{}'".format(benzersiz_kod))
@@ -32,7 +32,7 @@ def arac_getir_benzersizkod(benzersiz_kod:int): # Araç getir fonksiyonunu benze
     al.close()                             
     print(arac)
 
-def arac_getir_serino(serino:str) -> Arac: # Araç getir fonksiyonunu seri numaradan getiriyor.
+def arac_getir_serino(serino:str) -> Arac: 
     al = sqlite3.connect("araclar.sqlite")
     imlec = al.cursor()
     imlec.execute("SELECT * FROM 'araclar' WHERE 'Seri_no' = '{}'".format(serino))

@@ -1,6 +1,6 @@
-from .arac import Arac # Arac dosyasından Arac class ını çekiyoruz fakat nokta ne işe yarıyor??
-from . import arac_yonetimi # Aynı dizinde arac yonetimi dosyasını çekiyoruz.
-import random # Random modülünü import ediyoruz.
+from .arac import Arac 
+from . import arac_yonetimi 
+import random
 import menu_yonetimi
 import os
 import time
@@ -18,24 +18,24 @@ __menu_metni =("""
             ===========================
             """)
 
-def __arac_ekle(arac:Arac): # Araç ekle fonksiyonu oluşturup keyword argument olarak arac parametresini Arac classına eşliyoruz.
-    if arac==None: # Eğer arac parametresi boş ise:
-        arac_benzersiz_kod  = random.randint(1, 1000000) # Arac_benzersiz kod adında bir değişken  tanımlıyoruz sebebi ise aracın unique bir sayıya sahip olması, bunu da rastgele 1 ile 1000000 arasında bir rakamdan seçmesini sağlıyoruz.
-        arac_serino         = input("Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz : ") # Arac seri no değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_marka          = input("Lütfen Araç Markasını Giriniz : ")  # Arac marka değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_model          = input("Lütfen Araç Modelini Giriniz : ")  # Arac model değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_fiyat          = input("Lütfen Araç Fiyatını Giriniz : ")  # Arac fiyat değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
-        arac_renk           = input("Lütfen Araç Rengini Giriniz : ")  # Arac renk değişkeni tanımlayıp bunu kullanıcıdan alıyoruz.
+def __arac_ekle(arac:Arac): 
+    if arac==None: 
+        arac_benzersiz_kod  = random.randint(1, 1000000) 
+        arac_serino         = input("Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz : ") 
+        arac_marka          = input("Lütfen Araç Markasını Giriniz : ")  
+        arac_model          = input("Lütfen Araç Modelini Giriniz : ")  
+        arac_fiyat          = input("Lütfen Araç Fiyatını Giriniz : ")  
+        arac_renk           = input("Lütfen Araç Rengini Giriniz : ")  
         arac_silindir       = input("Lütfen Araç Silindir Sayısını Giriniz : ") 
-        arac = Arac(arac_benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) # Arac değişkenini Arac classına eşitliyoruz.
+        arac = Arac(arac_benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) 
 
-        sonuc = arac_yonetimi.arac_ekle(arac) # Sonuç değişkenine arac yonetimi dosyasında arac ekle fonksiyonunu çalıştırıp oluşturduğumuz arac değişkenini ekliyoruz.
+        sonuc = arac_yonetimi.arac_ekle(arac) 
 
-        if sonuc[0] == False: # Eğer sonuc değişkeninin 0'ıncı indeksi False ise
-            print(sonuc[1]) # Sonuç değişkeninin 1. indeksi yazdırılır
-            __arac_ekle(arac) # Yukarıda eklenen arac ekle fonksiyonuna arac parametresi eklenir
+        if sonuc[0] == False: 
+            print(sonuc[1]) 
+            __arac_ekle(arac) 
         else:
-            print("Araç Başarıyla Kaydedildi.") # Burayı tam anlamadım
+            print("Araç Başarıyla Kaydedildi.") 
 
     else:
         print("Daha Önce Girdiğiniz Değeri Kabul Etmek için Enter Tuşuna Basınız.")
@@ -46,7 +46,7 @@ def __arac_ekle(arac:Arac): # Araç ekle fonksiyonu oluşturup keyword argument 
         arac_renk       = input(f"Lütfen Araç Rengini Giriniz ({arac.renk}): ")
         arac_silindir   = input("Lütfen Araç Silindir Sayısını Giriniz ({arac.silindir}): ") 
 
-        if arac_serino == "": # Eğer bir değer vermezsek arac_seri noyu eski değer olarak bırakır.
+        if arac_serino == "": 
             arac_serino = arac.serino
 
         if arac_marka == "":
@@ -64,11 +64,11 @@ def __arac_ekle(arac:Arac): # Araç ekle fonksiyonu oluşturup keyword argument 
         if arac_silindir == "":
             arac_silindir = arac.silindir
 
-        arac = Arac(arac.benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) # Değerleri arac değişkeninin içine kaydeder.
+        arac = Arac(arac.benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) 
 
-        sonuc = arac_yonetimi.arac_ekle(arac) # araç yönetimi modülü altında araç ekle fonksiyonuna arac değişkenini ekleyip sonuç değişkenine sabitliyoruz.
+        sonuc = arac_yonetimi.arac_ekle(arac)
 
-        if sonuc[0] == False: # Yine yukarıdaki sistem.
+        if sonuc[0] == False: 
             print(sonuc[1])
             __arac_ekle(arac)
         else:
@@ -77,14 +77,14 @@ def __arac_ekle(arac:Arac): # Araç ekle fonksiyonu oluşturup keyword argument 
 def __arac_duzenle(benzersiz_kod):
     arac = arac_yonetimi.arac_getir(benzersiz_kod)
     print(arac)
-    arac_serino     = input(f"Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz ({arac.serino}):") # Eğer araç seri nosu araç paternine uymuyorsa bizden tekrar seri no istiyor ve araç seri no yazdırıyor.
+    arac_serino     = input(f"Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz ({arac.serino}):") 
     arac_marka      = input(f"Lütfen Araç Markasını Giriniz ({arac.marka}): ")
     arac_model      = input(f"Lütfen Araç Modelini Giriniz ({arac.model}): ")
     arac_fiyat      = input(f"Lütfen Araç Fiyatını Giriniz ({arac.fiyat}): ")
     arac_renk       = input(f"Lütfen Araç Rengini Giriniz ({arac.renk}): ")
     arac_silindir   = input("Lütfen Araç Silindir Sayısını Giriniz ({arac.silindir}): ") 
 
-    if arac_serino == "": # Eğer bir değer vermezsek arac_seri noyu eski değer olarak bırakır.
+    if arac_serino == "": 
         arac_serino = arac.serino
 
     if arac_marka == "":
@@ -102,29 +102,29 @@ def __arac_duzenle(benzersiz_kod):
     if arac_silindir == "":
         arac_silindir = arac.silindir
 
-    arac = Arac(arac.benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) # Değerleri arac değişkeninin içine kaydeder.
+    arac = Arac(arac.benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) 
 
-    sonuc = arac_yonetimi.arac_duzenle(arac) # araç yönetimi modülü altında araç ekle fonksiyonuna arac değişkenini ekleyip sonuç değişkenine sabitliyoruz.
+    sonuc = arac_yonetimi.arac_duzenle(arac)
 
-    if sonuc[0] == False: # Yine yukarıdaki sistem.
+    if sonuc[0] == False: 
         print(sonuc[1])
         __arac_duzenle(arac)
     else:
         print("Araç Başarıyla Kaydedildi.")
 
 def menu_getir():
-    while True: # Döngüyü almak için True döndürüyoruz.
-        print(__menu_metni) # Menü metni yazdırıyoruz.
-        secenek = int(input("Arac Yonetimi Menü Seçiminizi Yapınız: ")) # Menü yöentimi seçiyoruz.
-        if secenek == 1: # 1. Seçenek Araç Ekleme seçilirse:
+    while True: 
+        print(__menu_metni) 
+        secenek = int(input("Arac Yonetimi Menü Seçiminizi Yapınız: ")) 
+        if secenek == 1: 
             print("Araç Ekleme Çalışıyor...")
             time.sleep(1)
-            __arac_ekle(None) # __arac_ekle fonksiyonuna None tanımlıyoruz.
-        elif secenek == 2: # 2. Seçenek Araç Listeleme seçilirse:
+            __arac_ekle(None) 
+        elif secenek == 2:
             os.system("cls")
             print("Araçlar listeleniyor...")
             time.sleep(1)
-            arac_listesi = arac_yonetimi.arac_listele() # Arac yönetimi modülü altında araç listele fonksiyonunu, araç listesi değişkenine eşitliyoruz.
+            arac_listesi = arac_yonetimi.arac_listele() 
             for arac in arac_listesi: 
                 print(arac)
             print(input("Devam Etmek için Bir Tuşa Basınız..."))
