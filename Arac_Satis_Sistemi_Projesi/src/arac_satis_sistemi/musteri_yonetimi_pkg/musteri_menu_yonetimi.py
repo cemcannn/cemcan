@@ -1,7 +1,6 @@
 import menu_yonetimi
 from .musteri import Musteri
 from . import musteri_yonetimi
-import random
 import os
 import time
 
@@ -20,7 +19,7 @@ __menu_metni =("""
 
 def __musteri_ekle(musteri:Musteri):
     if musteri == None:
-        musteri_benzersiz_kod   = random.randint(1, 1000000)
+        musteri_benzersiz_kod   = None
         musteri_tckn            = input("Lütfen 11 Haneli Müşteri TCKN Giriniz : ")
         musteri_adi             = input("Müşteri Adını Giriniz : ")
         musteri_soyadi          = input("Müşteri Soyadını Giriniz : ")
@@ -69,6 +68,41 @@ def __musteri_ekle(musteri:Musteri):
         else:
             print("Müşteri Başarıyla Kaydedildi.") 
 
+def __musteri_duzenle(benzersiz_kod):
+    musteri = musteri_yonetimi.musteri_getir(benzersiz_kod)
+    print(musteri)
+    musteri_benzersiz_kod = musteri[0]
+    musteri_tckn        = input(f"Lütfen 11 Haneli Müşteri TCKN Giriniz ({musteri[1]}) : ")
+    musteri_adi         = input(f"Müşteri Adını Giriniz ({musteri[2]}): ")
+    musteri_soyadi      = input(f"Müşteri Soyadını Giriniz ({musteri[3]}) : ")
+    musteri_adresi      = input(f"Müşteri Adresini Giriniz ({musteri[4]}) : ")
+    musteri_telefonu    = input(f"Müşteri Telefonunu Başında '0' Olmadan Giriniz ({musteri[5]}) : ")
+
+    if musteri_tckn == "":
+        musteri_tckn = musteri[1]
+        
+    if musteri_adi == "":
+        musteri_adi = musteri[2]
+
+    if musteri_soyadi == "":
+        musteri_soyadi = musteri[3]
+        
+    if musteri_adresi == "":
+        musteri_adresi = musteri[4]
+        
+    if musteri_telefonu == "":
+        musteri_telefonu = musteri[5]
+
+    musteri = Musteri(musteri_benzersiz_kod, musteri_tckn, musteri_adi, musteri_soyadi, musteri_adresi, musteri_telefonu)
+
+    sonuc = musteri_yonetimi.musteri_duzenle(musteri)
+
+    if sonuc[0] == False:
+        print(sonuc[1])
+        __musteri_duzenle(musteri)
+    else:
+        print("Müşteri Başarıyla Kaydedildi.") 
+
 def menu_getir(): 
     while True:
         print(__menu_metni)
@@ -82,7 +116,7 @@ def menu_getir():
             print("Müşteriler listeleniyor...")
             time.sleep(1)
             musteri_listesi = musteri_yonetimi.musteri_listele()
-            for musteri in musteri_listesi.items():
+            for musteri in musteri_listesi:
                 print(musteri)
             print(input("Devam Etmek için Bir Tuşa Basınız..."))                
         elif secenek == 3:
@@ -90,17 +124,17 @@ def menu_getir():
             print("Müşteri Silme Çalışıyor...")   
             time.sleep(1)               
             musteri_listesi = musteri_yonetimi.musteri_listele()
-            for musteri in musteri_listesi.items():
+            for musteri in musteri_listesi:
                 print(musteri)
-            musteri_yonetimi.musteri_sil(int(input("Lütfen Silmek İstediğiniz Müşterinin Benzersiz Kodunu Giriniz : ")))
+            musteri_yonetimi.musteri_sil(input("Lütfen Silmek İstediğiniz Müşterinin Benzersiz Kodunu Giriniz : "))
         elif secenek == 4:
             os.system("cls")
             print("Müşteri Düzenleme Çalışıyor...")   
             time.sleep(1)                     
             musteri_listesi = musteri_yonetimi.musteri_listele()
-            for musteri in musteri_listesi.items(): 
+            for musteri in musteri_listesi: 
                 print(musteri)
-            musteri_yonetimi.arac_duzenle(int(input("Lütfen Düzenlemek İstediğiniz Müşterinin Benzersiz Kodunu Giriniz : ")))
+            __musteri_duzenle(input("Lütfen Düzenlemek İstediğiniz Müşterinin Benzersiz Kodunu Giriniz :"))
         elif secenek == 5:
             menu_yonetimi.ana_menu_getir()
         else:

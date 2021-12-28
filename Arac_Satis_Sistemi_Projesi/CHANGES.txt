@@ -1,19 +1,25 @@
+version 0.6
+-----------------
+delete problem is solved on all modules
+some bug fixes
+sqlite database is integrated to all modules
+
 version 0.5
 -----------------
 sql database has been tested on arac_yonetim_sistemi
 
 version 0.4
 -----------------
-fatura yonetimi is added
+fatura yonetimi module is added
 some bug fixes
 
 version 0.3
 -----------------
-personel yonetimi is added
+personel yonetimi module is added
 
 version 0.2
 -----------------
-müşteri yonetimi is added
+müşteri yonetimi module is added
 
 version 0.1
 -----------------

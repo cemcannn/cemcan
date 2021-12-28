@@ -2,7 +2,6 @@ from .arac import Arac
 import re 
 from . import arac_veri_yonetimi 
 
-
 def __arac_dogrula(arac:Arac) -> (bool,str): 
 
     pattern = "A[0-9]{3}-[0-9]{4}" 
@@ -11,13 +10,12 @@ def __arac_dogrula(arac:Arac) -> (bool,str):
         return (False, "Seri Numarası A000-0000 Patternine Uymalıdır!")
 
     if arac_veri_yonetimi.arac_getir_serino(arac.serino) != None:
-        return (False, "Seri Numarası Daha Önce Kullanılmış")
+        return (False, f"{arac.serino} Seri Numarası Daha Önce Kullanılmış")
 
     if type(arac.fiyat) != int:
         return (False, "Fiyat Rakam Olmalıdır")
 
     return (True, "Araç Doğrulandı")
-
 
 def arac_ekle(arac: Arac) -> (bool,str):
     # validasyon ve varsa diğer iş kuralları yazılmalı

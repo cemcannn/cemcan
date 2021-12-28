@@ -1,7 +1,7 @@
 class Musteri:
     def __init__(self,benzersiz_kod: int, tckn:int,adi:str,soyadi:str,adres:complex,tel:int):
         self.benzersiz_kod  = benzersiz_kod
-        self.tckn           = tckn
+        self.tckn           = tckn # Pattern: must be 11 character and integer
         self.adi            = adi
         self.soyadi         = soyadi
         self.adres          = adres

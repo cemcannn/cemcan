@@ -3,27 +3,19 @@ from . import musteri_veri_yonetimi
 import re
 
 def __musteri_dogrula(musteri: Musteri) -> (bool,str):
+
     pattern     = "[1-9]{1}[0-9]{10}"
     sonuc       = re.search(pattern, musteri.tckn)
     pattern2    = "[1-9]{1}[0-9]{9}"
     sonuc2      = re.search(pattern2, musteri.tel)
     if sonuc == None:
-        return (False, "TCKN 11 Haneli Olmalıdır!")
-
-    if sonuc == "[0]{1}[0-9]{10}":
-        return (False, "TCKN '0' ile Başlayamaz!")
+        return (False, "TCKN Patterne Uygun Olmalıdır!")
     
     if musteri_veri_yonetimi.musteri_getir_tckn(musteri.tckn) != None:
-        return (False, "{musteri.tckn} İlgili Müşteri TCKN Daha Önce Sisteme Kaydedilmiş!")
-    
-    if musteri.tckn.isnumeric() != True:
-        return (False, "TCKN Rakamlardan Oluşmalıdır!")
+        return (False, f"{musteri.tckn} Müşteri TCKN'sı Daha Önce Sisteme Kaydedilmiş!")
     
     if sonuc2 == None:
-        return (False, "Lütfen Telefon Numarasını Doğru Giriniz!")
-
-    if musteri.tel.isnumeric() != True:
-        return (False, "Telefon Numarası Rakamlardan Oluşmalıdır!")
+        return (False, "Telefon Numarası Patterne Uygun Olmalıdır!")
 
     return (True, "Müşteri Doğrulandı")
 
@@ -56,13 +48,13 @@ def musteri_duzenle(musteri:Musteri) -> (bool,str):
         if dogrulama_sonucu[0] == False:
             return dogrulama_sonucu
 
-        musteri_veri_yonetimi.musteri_duzenle(musteri)[musteri.benzersiz_kod]=musteri
+        musteri_veri_yonetimi.musteri_duzenle(musteri)
 
         return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
         return (False, "Hata Meydana Geldi : " + ex.__str__())
     
-def arac_getir(benzersiz_kod: int) -> Musteri:
+def musteri_getir(benzersiz_kod: int) -> Musteri:
     try:
         return musteri_veri_yonetimi.musteri_getir_benzersizkod(benzersiz_kod)
     except:

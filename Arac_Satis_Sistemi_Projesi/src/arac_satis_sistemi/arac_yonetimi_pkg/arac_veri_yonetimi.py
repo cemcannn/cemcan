@@ -1,59 +1,55 @@
 from .arac import Arac 
 import sqlite3
+import os
 
+current_directory = os.getcwd()
 
 def arac_ekle(arac:Arac): 
-    al = sqlite3.connect("araclar.sqlite")
-    imlec = al.cursor()
-    imlec.execute("""CREATE TABLE IF NOT EXISTS 'araclar' 
-                (Benzersiz_kod INTEGER NOT NULL, 
-                Seri_no NOT NULL, 
-                Marka STRING NOT NULL, 
-                Model STRING NOT NULL, 
-                Fiyat INTEGER NOT NULL, 
-                Renk STRING NOT NULL, 
-                Silindir INTEGER NOT NULL)""")
-
-    imlec.execute("INSERT INTO 'araclar' VALUES (?,?,?,?,?,?,?)",(arac.benzersiz_kod,arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir))
-    al.commit()
-    al.close()
+    veritabanim = sqlite3.connect('{}\\My_Projects\\arac_satis_sistemi_projesi\\src\\arac_satis_sistemi\\database\\veritabanim.sqlite'.format(current_directory))
+    imlec = veritabanim.cursor()
+    imlec.execute("INSERT INTO araclar VALUES (?,?,?,?,?,?,?)",(arac.benzersiz_kod,arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir))
+    veritabanim.commit()
+    veritabanim.close()
 
 def arac_sil(benzersiz_kod:int):
-    al = sqlite3.connect("araclar.sqlite")
-    imlec = al.cursor()
-    imlec.execute("DELETE FROM 'araclar' WHERE 'Benzersiz_kod' = '{}'".format(benzersiz_kod))
-    al.commit()
-    al.close()
+    veritabanim = sqlite3.connect('{}\\My_Projects\\arac_satis_sistemi_projesi\\src\\arac_satis_sistemi\\database\\veritabanim.sqlite'.format(current_directory))
+    imlec = veritabanim.cursor()
+    imlec.execute("DELETE FROM araclar WHERE Benzersiz_kod = ?",(benzersiz_kod,))
+    veritabanim.commit()
+    veritabanim.close()
 
 def arac_getir_benzersizkod(benzersiz_kod:int):
-    al = sqlite3.connect("araclar.sqlite")
-    imlec = al.cursor()
-    imlec.execute("SELECT * FROM 'araclar' WHERE 'Benzersiz_kod' = '{}'".format(benzersiz_kod))
+    veritabanim = sqlite3.connect('{}\\My_Projects\\arac_satis_sistemi_projesi\\src\\arac_satis_sistemi\\database\\veritabanim.sqlite'.format(current_directory))
+    imlec = veritabanim.cursor()
+    imlec.execute("SELECT * FROM araclar WHERE Benzersiz_kod = ?",(benzersiz_kod,))
     arac = imlec.fetchone()
-    al.close()                             
-    print(arac)
+    veritabanim.close()                             
+    return arac
 
 def arac_getir_serino(serino:str) -> Arac: 
-    al = sqlite3.connect("araclar.sqlite")
-    imlec = al.cursor()
-    imlec.execute("SELECT * FROM 'araclar' WHERE 'Seri_no' = '{}'".format(serino))
+    veritabanim = sqlite3.connect('{}\\My_Projects\\arac_satis_sistemi_projesi\\src\\arac_satis_sistemi\\database\\veritabanim.sqlite'.format(current_directory))
+    imlec = veritabanim.cursor()
+    imlec.execute("SELECT * FROM araclar WHERE Seri_no = ?",(serino,))
     arac = imlec.fetchone()
-    al.close()        
+    veritabanim.close()        
     if serino != None:
         return arac
     return None
               
 def arac_listele() -> list():
-    al = sqlite3.connect("araclar.sqlite")
-    imlec = al.cursor()
+    veritabanim = sqlite3.connect('{}\\My_Projects\\arac_satis_sistemi_projesi\\src\\arac_satis_sistemi\\database\\veritabanim.sqlite'.format(current_directory))
+    imlec = veritabanim.cursor()
     sorgu = "SELECT * FROM araclar"
     imlec.execute(sorgu)
     arac_listesi = imlec.fetchall()
     return arac_listesi
 
 def arac_duzenle(arac:Arac):
-    al = sqlite3.connect("araclar.sqlite")
-    imlec = al.cursor()
-    imlec.execute("UPDATE 'araclar' set ({},{},{},{},{},{},{}) WHERE Benzersiz_kod = '{}'".format(arac.benzersiz_kod,arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir,arac.benzersiz_kod))
-    al.commit()
-    al.close()
+    veritabanim = sqlite3.connect('{}\\My_Projects\\arac_satis_sistemi_projesi\\src\\arac_satis_sistemi\\database\\veritabanim.sqlite'.format(current_directory))
+    imlec = veritabanim.cursor()
+    imlec.execute("UPDATE araclar SET Seri_no = ?, Marka = ?, Model = ?, Fiyat = ?, Renk = ?, Silindir = ? WHERE Benzersiz_kod = ?",(arac.serino,arac.marka,arac.model,arac.fiyat,arac.renk,arac.silindir,arac.benzersiz_kod))
+    veritabanim.commit()
+    veritabanim.close()
+
+
+

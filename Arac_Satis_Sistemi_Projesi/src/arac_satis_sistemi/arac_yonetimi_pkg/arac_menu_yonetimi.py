@@ -1,6 +1,5 @@
-from .arac import Arac 
-from . import arac_yonetimi 
-import random
+from .arac import Arac
+from . import arac_yonetimi
 import menu_yonetimi
 import os
 import time
@@ -18,24 +17,24 @@ __menu_metni =("""
             ===========================
             """)
 
-def __arac_ekle(arac:Arac): 
-    if arac==None: 
-        arac_benzersiz_kod  = random.randint(1, 1000000) 
-        arac_serino         = input("Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz : ") 
-        arac_marka          = input("Lütfen Araç Markasını Giriniz : ")  
-        arac_model          = input("Lütfen Araç Modelini Giriniz : ")  
-        arac_fiyat          = input("Lütfen Araç Fiyatını Giriniz : ")  
-        arac_renk           = input("Lütfen Araç Rengini Giriniz : ")  
-        arac_silindir       = input("Lütfen Araç Silindir Sayısını Giriniz : ") 
-        arac = Arac(arac_benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) 
+def __arac_ekle(arac:Arac):
+    if arac==None:
+        arac_benzersiz_kod  = None
+        arac_serino         = input("Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz : ")
+        arac_marka          = input("Lütfen Araç Markasını Giriniz : ")
+        arac_model          = input("Lütfen Araç Modelini Giriniz : ")
+        arac_fiyat          = input("Lütfen Araç Fiyatını Giriniz : ")
+        arac_renk           = input("Lütfen Araç Rengini Giriniz : ")
+        arac_silindir       = input("Lütfen Araç Silindir Sayısını Giriniz : ")
+        arac = Arac(arac_benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir))
 
-        sonuc = arac_yonetimi.arac_ekle(arac) 
+        sonuc = arac_yonetimi.arac_ekle(arac)
 
-        if sonuc[0] == False: 
-            print(sonuc[1]) 
-            __arac_ekle(arac) 
+        if sonuc[0] == False:
+            print(sonuc[1])
+            __arac_ekle(arac)
         else:
-            print("Araç Başarıyla Kaydedildi.") 
+            print("Araç Başarıyla Kaydedildi.")
 
     else:
         print("Daha Önce Girdiğiniz Değeri Kabul Etmek için Enter Tuşuna Basınız.")
@@ -44,9 +43,9 @@ def __arac_ekle(arac:Arac):
         arac_model      = input(f"Lütfen Araç Modelini Giriniz ({arac.model}): ")
         arac_fiyat      = input(f"Lütfen Araç Fiyatını Giriniz ({arac.fiyat}): ")
         arac_renk       = input(f"Lütfen Araç Rengini Giriniz ({arac.renk}): ")
-        arac_silindir   = input("Lütfen Araç Silindir Sayısını Giriniz ({arac.silindir}): ") 
+        arac_silindir   = input(f"Lütfen Araç Silindir Sayısını Giriniz ({arac.silindir}): ")
 
-        if arac_serino == "": 
+        if arac_serino == "":
             arac_serino = arac.serino
 
         if arac_marka == "":
@@ -64,11 +63,11 @@ def __arac_ekle(arac:Arac):
         if arac_silindir == "":
             arac_silindir = arac.silindir
 
-        arac = Arac(arac.benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) 
+        arac = Arac(arac.benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir))
 
         sonuc = arac_yonetimi.arac_ekle(arac)
 
-        if sonuc[0] == False: 
+        if sonuc[0] == False:
             print(sonuc[1])
             __arac_ekle(arac)
         else:
@@ -77,74 +76,74 @@ def __arac_ekle(arac:Arac):
 def __arac_duzenle(benzersiz_kod):
     arac = arac_yonetimi.arac_getir(benzersiz_kod)
     print(arac)
-    arac_serino     = input(f"Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz ({arac.serino}):") 
-    arac_marka      = input(f"Lütfen Araç Markasını Giriniz ({arac.marka}): ")
-    arac_model      = input(f"Lütfen Araç Modelini Giriniz ({arac.model}): ")
-    arac_fiyat      = input(f"Lütfen Araç Fiyatını Giriniz ({arac.fiyat}): ")
-    arac_renk       = input(f"Lütfen Araç Rengini Giriniz ({arac.renk}): ")
-    arac_silindir   = input("Lütfen Araç Silindir Sayısını Giriniz ({arac.silindir}): ") 
+    arac_benzersiz_kod = arac[0]
+    arac_serino     = input(f"Lütfen Araç Seri Numarasını 'A000-0000' Pattern Örneğine göre Giriniz ({arac[1]}):")
+    arac_marka      = input(f"Lütfen Araç Markasını Giriniz ({arac[2]}): ")
+    arac_model      = input(f"Lütfen Araç Modelini Giriniz ({arac[3]}): ")
+    arac_fiyat      = input(f"Lütfen Araç Fiyatını Giriniz ({arac[4]}): ")
+    arac_renk       = input(f"Lütfen Araç Rengini Giriniz ({arac[5]}): ")
+    arac_silindir   = input(f"Lütfen Araç Silindir Sayısını Giriniz ({arac[6]}): ")
 
-    if arac_serino == "": 
-        arac_serino = arac.serino
+    if arac_serino == "":
+        arac_serino = arac[1]
 
     if arac_marka == "":
-        arac_marka = arac.marka
+        arac_marka = arac[2]
 
     if arac_model == "":
-        arac_model = arac.model
+        arac_model = arac[3]
 
     if arac_fiyat == "":
-        arac_fiyat = arac.fiyat
+        arac_fiyat = arac[4]
 
     if arac_renk == "":
-        arac_renk = arac.renk
+        arac_renk = arac[5]
 
     if arac_silindir == "":
-        arac_silindir = arac.silindir
+        arac_silindir = arac[6]
 
-    arac = Arac(arac.benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir)) 
+    arac = Arac(arac_benzersiz_kod, arac_serino, arac_marka, arac_model, int(arac_fiyat), arac_renk, int(arac_silindir))
 
     sonuc = arac_yonetimi.arac_duzenle(arac)
 
-    if sonuc[0] == False: 
+    if sonuc[0] == False:
         print(sonuc[1])
         __arac_duzenle(arac)
     else:
         print("Araç Başarıyla Kaydedildi.")
 
 def menu_getir():
-    while True: 
-        print(__menu_metni) 
-        secenek = int(input("Arac Yonetimi Menü Seçiminizi Yapınız: ")) 
-        if secenek == 1: 
+    while True:
+        print(__menu_metni)
+        secenek = int(input("Arac Yonetimi Menü Seçiminizi Yapınız: "))
+        if secenek == 1:
             print("Araç Ekleme Çalışıyor...")
             time.sleep(1)
-            __arac_ekle(None) 
+            __arac_ekle(None)
         elif secenek == 2:
             os.system("cls")
             print("Araçlar listeleniyor...")
             time.sleep(1)
-            arac_listesi = arac_yonetimi.arac_listele() 
-            for arac in arac_listesi: 
+            arac_listesi = arac_yonetimi.arac_listele()
+            for arac in arac_listesi:
                 print(arac)
             print(input("Devam Etmek için Bir Tuşa Basınız..."))
         elif secenek == 3:
             os.system("cls")
-            print("Araç Silme Çalışıyor...")   
-            time.sleep(1)                     
+            print("Araç Silme Çalışıyor...")
+            time.sleep(1)
             arac_listesi = arac_yonetimi.arac_listele()
-            for arac in arac_listesi: 
+            for arac in arac_listesi:
                 print(arac)
-            arac_yonetimi.arac_sil(int(input("Lütfen Silmek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")))
+            arac_yonetimi.arac_sil(input("Lütfen Silmek İstediğiniz Aracın Benzersiz Kodunu Giriniz : "))
         elif secenek == 4:
             os.system("cls")
-            print("Araç Düzenleme Çalışıyor...")   
-            time.sleep(1)                     
+            print("Araç Düzenleme Çalışıyor...")
+            time.sleep(1)
             arac_listesi = arac_yonetimi.arac_listele()
-            for arac in arac_listesi: 
+            for arac in arac_listesi:
                 print(arac)
-            __arac_duzenle(input("Lütfen Düzenlemek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")) 
-            arac_yonetimi.arac_duzenle(int(input("Lütfen Düzenlemek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")))
+            __arac_duzenle(input("Lütfen Düzenlemek İstediğiniz Aracın Benzersiz Kodunu Giriniz : "))
         elif secenek == 5:
             menu_yonetimi.ana_menu_getir()
         else:

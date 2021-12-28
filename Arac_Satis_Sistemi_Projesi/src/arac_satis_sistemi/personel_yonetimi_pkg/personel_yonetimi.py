@@ -8,22 +8,13 @@ def __personel_dogrula(personel: Personel) -> (bool,str):
     pattern2    = "[1-9]{1}[0-9]{9}"
     sonuc2      = re.search(pattern2, personel.tel)
     if sonuc == None:
-        return (False, "TCKN 11 Haneli Olmalıdır!")
-
-    if sonuc == "[0]{1}[0-9]{10}":
-        return (False, "TCKN '0' ile Başlayamaz!")
+        return (False, "TCKN Patterne Uygun Olmalıdır!")
     
     if personel_veri_yonetimi.personel_getir_tckn(personel.tckn) != None:
-        return (False, "{personel.tckn} İlgili Personel TCKN Daha Önce Sisteme Kaydedilmiş!")
-    
-    if personel.tckn.isnumeric() != True:
-        return (False, "TCKN Rakamlardan Oluşmalıdır!")
+        return (False, f"{personel.tckn} Personel TCKN'sı Daha Önce Sisteme Kaydedilmiş!")
     
     if sonuc2 == None:
-        return (False, "Lütfen Telefon Numarasını Doğru Giriniz!")
-
-    if personel.tel.isnumeric() != True:
-        return (False, "Telefon Numarası Rakamlardan Oluşmalıdır!")
+        return (False, "Telefon Numarası Patterne Uygun Olmalıdır!")
 
     return (True, "Personel Doğrulandı")
 
@@ -56,13 +47,13 @@ def personel_duzenle(personel:Personel) -> (bool,str):
         if dogrulama_sonucu[0] == False:
             return dogrulama_sonucu
 
-        personel_veri_yonetimi.personel_duzenle(personel)[personel.benzersiz_kod]=personel
-
+        personel_veri_yonetimi.personel_duzenle(personel)
         return (True, "Kayıt Başarıyla Yapılmıştır.")
+        
     except Exception as ex:
         return (False, "Hata Meydana Geldi : " + ex.__str__())
     
-def arac_getir(benzersiz_kod: int) -> Personel:
+def personel_getir(benzersiz_kod: int) -> Personel:
     try:
         return personel_veri_yonetimi.personel_getir_benzersizkod(benzersiz_kod)
     except:

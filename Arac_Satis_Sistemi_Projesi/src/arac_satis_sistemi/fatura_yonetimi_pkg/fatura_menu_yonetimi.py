@@ -4,9 +4,9 @@ from musteri_yonetimi_pkg import musteri_veri_yonetimi as mvy
 from personel_yonetimi_pkg import personel_veri_yonetimi as pvy
 from .fatura import Fatura
 from . import fatura_yonetimi
-import random
 import time
 import os
+from datetime import datetime
 
 __menu_metni =("""
             ===========================
@@ -23,20 +23,21 @@ __menu_metni =("""
 
 def __fatura_ekle(fatura:Fatura):
     if fatura == None:
-        fatura_benzersiz_kod            = random.randint(1, 1000000)
+        fatura_benzersiz_kod            = None
         fatura_no                       = input("Lütfen Fatura Numarasını 'AAA2021000000' Pattern Örneğine göre Giriniz : ")
         os.system("cls")
         print(avy.fatura_listele())
-        fatura_fatura                     = avy.fatura_getir_benzersizkod(int(input("Fatura Benzersiz Kod Giriniz : ")))
+        fatura_arac                     = avy.fatura_getir_benzersizkod(int(input("Fatura Benzersiz Kod Giriniz : ")))
         os.system("cls")
         print(mvy.musteri_listele())
-        os.system("cls")
         fatura_musteri                  = mvy.musteri_getir_benzersizkod(int(input("Fatura Benzersiz Kod Giriniz : ")))
+        os.system("cls")
         print(pvy.personel_listele())
         fatura_personel                 = pvy.personel_getir_benzersizkod(int(input("Personel Benzersiz Kod Giriniz : ")))
-        fatura_tutari                   = fatura_yonetimi.__vergi_hesapla(fatura_fatura)
-        fatura_tarihi                   = time.datetime.now()
-        fatura = Fatura(fatura_benzersiz_kod, fatura_no, fatura_fatura, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
+        fatura_tutari                   = fatura_yonetimi.__vergi_hesapla(fatura_arac)
+        moment                          = datetime.now()
+        fatura_tarihi                   = datetime.strftime(moment, '%c')
+        fatura = Fatura(fatura_benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
@@ -51,21 +52,22 @@ def __fatura_ekle(fatura:Fatura):
         fatura_no                       = input(f"Lütfen Fatura Numarasını 'AAA2021000000' Pattern Örneğine göre Giriniz({fatura.no}) : ")
         os.system("cls")
         print(avy.fatura_listele())
-        fatura_fatura                     = avy.fatura_getir_benzersizkod(int(input("Fatura Benzersiz Kod Giriniz ({fatura.fatura}): ")))
+        fatura_arac                     = avy.fatura_getir_benzersizkod(int(input(f"Fatura Benzersiz Kod Giriniz ({fatura.arac}): ")))
         os.system("cls")        
         print(mvy.musteri_listele())
-        fatura_musteri                  = mvy.musteri_getir_benzersizkod(int(input("Fatura Benzersiz Kod Giriniz ({fatura.musteri}): ")))
+        fatura_musteri                  = mvy.musteri_getir_benzersizkod(int(input(f"Fatura Benzersiz Kod Giriniz ({fatura.musteri}): ")))
         os.system("cls")
         print(pvy.personel_listele())
-        fatura_personel                 = pvy.personel_getir_benzersizkod(int(input("Personel Benzersiz Kod Giriniz ({fatura.personel}): ")))
-        fatura_tutari                   = fatura_yonetimi.__vergi_hesapla(fatura_fatura)
-        fatura_tarihi                   = time.datetime.now()
+        fatura_personel                 = pvy.personel_getir_benzersizkod(int(input(f"Personel Benzersiz Kod Giriniz ({fatura.personel}): ")))
+        fatura_tutari                   = fatura_yonetimi.__vergi_hesapla(fatura_arac)
+        moment                          = datetime.now()
+        fatura_tarihi                   = datetime.strftime(moment, '%c')
 
         if fatura_no == "":
             fatura_no = fatura.no
         
-        if fatura_fatura == "":
-            fatura_fatura = fatura.fatura
+        if fatura_arac == "":
+            fatura_arac = fatura.arac
 
         if fatura_musteri == "":
             fatura_musteri = fatura.musteri
@@ -79,7 +81,7 @@ def __fatura_ekle(fatura:Fatura):
         if fatura_tarihi == "":
             fatura_tarihi = fatura.tarih
 
-        fatura = Fatura(fatura.benzersiz_kod, fatura_no, fatura_fatura, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
+        fatura = Fatura(fatura.benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
 
         sonuc = fatura_yonetimi.fatura_ekle(fatura)
 
@@ -88,6 +90,52 @@ def __fatura_ekle(fatura:Fatura):
             __fatura_ekle(fatura)
         else:
             print("Fatura Başarıyla Kaydedildi.") 
+
+def __fatura_duzenle(benzersiz_kod):
+    fatura = fatura_yonetimi.fatura_getir(benzersiz_kod)
+    print(fatura)
+    fatura_benzersiz_kod = fatura[0]
+    fatura_no                       = input(f"Lütfen Fatura Numarasını 'AAA2021000000' Pattern Örneğine göre Giriniz({fatura[1]}) : ")
+    os.system("cls")
+    print(avy.fatura_listele())
+    fatura_arac                     = avy.fatura_getir_benzersizkod(int(input(f"Fatura Benzersiz Kod Giriniz ({fatura[2]}): ")))
+    os.system("cls")        
+    print(mvy.musteri_listele())
+    fatura_musteri                  = mvy.musteri_getir_benzersizkod(int(input(f"Fatura Benzersiz Kod Giriniz ({fatura[3]}): ")))
+    os.system("cls")
+    print(pvy.personel_listele())
+    fatura_personel                 = pvy.personel_getir_benzersizkod(int(input(f"Personel Benzersiz Kod Giriniz ({fatura[4]}): ")))
+    fatura_tutari                   = fatura_yonetimi.__vergi_hesapla(fatura_arac)
+    moment                          = datetime.now()
+    fatura_tarihi                   = datetime.strftime(moment, '%c')
+
+    if fatura_no == "":
+        fatura_no = fatura[1]
+        
+    if fatura_arac == "":
+        fatura_arac = fatura[2]
+
+    if fatura_musteri == "":
+        fatura_musteri = fatura[3]
+            
+    if fatura_personel == "":
+        fatura_personel = fatura[4]
+        
+    if fatura_tutari == "":
+        fatura_tutari = fatura[5]
+        
+    if fatura_tarihi == "":
+        fatura_tarihi = fatura[6]
+
+    fatura = Fatura(fatura_benzersiz_kod, fatura_no, fatura_arac, fatura_musteri, fatura_personel, fatura_tutari, fatura_tarihi)
+
+    sonuc = fatura_yonetimi.fatura_duzenle(fatura)
+
+    if sonuc[0] == False:
+        print(sonuc[1])
+        __fatura_duzenle(fatura)
+    else:
+        print("Fatura Başarıyla Kaydedildi.") 
 
 def menu_getir():
     while True: # Döngüyü almak için True döndürüyoruz.
@@ -102,7 +150,7 @@ def menu_getir():
             print("Faturalar listeleniyor...")
             time.sleep(1)
             fatura_listesi = fatura_yonetimi.fatura_listele() # Arac yönetimi modülü altında araç listele fonksiyonunu, araç listesi değişkenine eşitliyoruz.
-            for fatura in fatura_listesi.items(): 
+            for fatura in fatura_listesi: 
                 print(fatura)
             print(input("Devam Etmek için Bir Tuşa Basınız..."))
         elif secenek == 3:
@@ -110,17 +158,17 @@ def menu_getir():
             print("Fatura Silme Çalışıyor...")   
             time.sleep(1)                     
             fatura_listesi = fatura_yonetimi.fatura_listele()
-            for fatura in fatura_listesi.items(): 
+            for fatura in fatura_listesi: 
                 print(fatura)
-            fatura_yonetimi.fatura_sil(int(input("Lütfen Silmek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")))
+            fatura_yonetimi.fatura_sil(input("Lütfen Silmek İstediğiniz Aracın Benzersiz Kodunu Giriniz : "))
         elif secenek == 4:
             os.system("cls")
             print("Fatura Düzenleme Çalışıyor...")   
             time.sleep(1)                     
             fatura_listesi = fatura_yonetimi.fatura_listele()
-            for fatura in fatura_listesi.items(): 
+            for fatura in fatura_listesi: 
                 print(fatura)
-            fatura_yonetimi.fatura_duzenle(int(input("Lütfen Düzenlemek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")))
+            __fatura_duzenle(input("Lütfen Düzenlemek İstediğiniz Faturanın Benzersiz Kodunu Giriniz : "))
         elif secenek == 5:
             menu_yonetimi.ana_menu_getir()
         else:

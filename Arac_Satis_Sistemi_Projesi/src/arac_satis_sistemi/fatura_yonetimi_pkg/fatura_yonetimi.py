@@ -41,9 +41,6 @@ def __fatura_dogrula(fatura: Fatura) -> (bool,str):
     if fatura_veri_yonetimi.fatura_getir_faturano(fatura.no) != None:
         return (False, "{fatura.no} Fatura Numarası Daha Önce Sisteme Kaydedilmiş!")
 
-    # if type(fatura.tutar) != int:
-    #     return (False, "Fatura tutarı rakamlardan oluşmalıdır!")
-
     return (True, "Fatura Doğrulandı")
 
 def fatura_ekle(fatura:Fatura) -> (bool,str):
@@ -75,13 +72,13 @@ def fatura_duzenle(fatura:Fatura) -> (bool,str):
         if dogrulama_sonucu[0] == False:
             return dogrulama_sonucu
 
-        fatura_veri_yonetimi.fatura_duzenle(fatura)[fatura.benzersiz_kod]=fatura
+        fatura_veri_yonetimi.fatura_duzenle(fatura)
 
         return (True, "Kayıt Başarıyla Yapılmıştır.")
     except Exception as ex:
         return (False, "Hata Meydana Geldi : " + ex.__str__())
     
-def arac_getir(benzersiz_kod: int) -> Fatura:
+def fatura_getir(benzersiz_kod: int) -> Fatura:
     try:
         return fatura_veri_yonetimi.fatura_getir_benzersizkod(benzersiz_kod)
     except:
