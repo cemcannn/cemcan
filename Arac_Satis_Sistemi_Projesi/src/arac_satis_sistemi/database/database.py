@@ -8,44 +8,44 @@ imlec = veritabanim.cursor()
 
 imlec.execute("""CREATE TABLE IF NOT EXISTS araclar
                 (Benzersiz_kod INTEGER NOT NULL, 
-                Seri_no STRING NOT NULL, 
-                Marka STRING NOT NULL, 
-                Model STRING NOT NULL, 
+                Seri_no TEXT NOT NULL, 
+                Marka TEXT NOT NULL, 
+                Model TEXT NOT NULL, 
                 Fiyat INTEGER NOT NULL, 
-                Renk STRING NOT NULL, 
+                Renk TEXT NOT NULL, 
                 Silindir INTEGER NOT NULL,
                 PRIMARY KEY("Benzersiz_kod" AUTOINCREMENT)
                 )""")
 
 imlec.execute("""CREATE TABLE IF NOT EXISTS personeller
                 (Benzersiz_kod INTEGER NOT NULL, 
-                Personel_TCKN INTEGER NOT NULL, 
-                Adi STRING NOT NULL, 
-                Soyadi STRING NOT NULL, 
-                Adres STRING NOT NULL, 
-                Telefon INTEGER NOT NULL, 
-                Gorev STRING NOT NULL,                
+                Personel_TCKN TEXT NOT NULL, 
+                Adi TEXT NOT NULL, 
+                Soyadi TEXT NOT NULL, 
+                Adres TEXT NOT NULL, 
+                Telefon TEXT NOT NULL, 
+                Gorev TEXT NOT NULL,                
                 PRIMARY KEY("Benzersiz_kod" AUTOINCREMENT)
                 )""")
 
 imlec.execute("""CREATE TABLE IF NOT EXISTS musteriler
                 (Benzersiz_kod INTEGER NOT NULL, 
-                Musteri_TCKN INTEGER NOT NULL, 
-                Adi STRING NOT NULL, 
-                Soyadi STRING NOT NULL, 
-                Adres STRING NOT NULL, 
-                Telefon INTEGER NOT NULL,
+                Musteri_TCKN TEXT NOT NULL, 
+                Adi TEXT NOT NULL, 
+                Soyadi TEXT NOT NULL, 
+                Adres TEXT NOT NULL, 
+                Telefon TEXT NOT NULL,
                 PRIMARY KEY("Benzersiz_kod" AUTOINCREMENT)
                 )""")
 
 imlec.execute("""CREATE TABLE IF NOT EXISTS faturalar
                 (Benzersiz_kod INTEGER NOT NULL, 
-                Fatura_no INTEGER NOT NULL, 
-                Arac STRING NOT NULL, 
-                Musteri STRING NOT NULL, 
-                Personel STRING NOT NULL, 
+                Fatura_no TEXT NOT NULL, 
+                Arac TEXT NOT NULL, 
+                Musteri TEXT NOT NULL, 
+                Personel TEXT NOT NULL, 
                 Tutar INTEGER NOT NULL, 
-                Tarih STRING NOT NULL,                
+                Tarih TEXT NOT NULL,                
                 PRIMARY KEY("Benzersiz_kod" AUTOINCREMENT)
                 )""")
 
