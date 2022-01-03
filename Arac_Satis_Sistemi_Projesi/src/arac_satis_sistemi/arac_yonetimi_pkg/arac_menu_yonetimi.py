@@ -3,6 +3,7 @@ from . import arac_yonetimi
 import menu_yonetimi
 import os
 import time
+from tkinter import *
 
 __menu_metni =("""
             ===========================
@@ -148,3 +149,22 @@ def menu_getir():
             menu_yonetimi.ana_menu_getir()
         else:
             print("Lütfen Doğru Seçeneği Seçiniz!")
+
+# pencere = Tk()
+
+# hesap_alani = Entry(pencere)
+# hesap_alani.insert(0,"")
+# hesap_alani.grid(row=0, columnspan=5)
+
+# menu_01 = Button(pencere, text="Araç Ekle",command = lambda: __arac_ekle(None))
+# menu_01.grid(row=1,columnspan=5)
+# menu_02 = Button(pencere, text="Araç Listele",command = lambda: arac_yonetimi.arac_listele())
+# menu_02.grid(row=2,columnspan=5)
+# menu_03 = Button(pencere, text="Araç Sil",command = lambda: arac_yonetimi.arac_sil(input("Lütfen Silmek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")))
+# menu_03.grid(row=3,columnspan=5)
+# menu_04 = Button(pencere, text="Araç Düzenle",command = lambda: __arac_duzenle(input("Lütfen Düzenlemek İstediğiniz Aracın Benzersiz Kodunu Giriniz : ")))
+# menu_04.grid(row=4,columnspan=5)
+# menu_05 = Button(pencere, text="Ana Menüye Dön",command = lambda: menu_yonetimi.ana_menu_getir())
+# menu_05.grid(row=5,columnspan=5)
+
+# pencere.mainloop()
