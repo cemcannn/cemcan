@@ -1,5 +1,5 @@
 
-telefon_defteri = [["CEM CAN",1234]]
+telefon_defteri = []
 
 def telefon_rehberi():
     for i in telefon_defteri:
